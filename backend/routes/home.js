@@ -7,13 +7,11 @@ const Teacher = mongoose.model("Teacher");
 router.get("/", (req, res) => {
   res.send("Welcome");
 });
-
 router.post("/add-teacher", (req, res) => {
   const { name } = req.body;
   if (!name) {
     return res.status(422).json({ error: "need name" });
   }
-  //search db by name and return
   Teacher.findOne({ name: name })
     .then((existingTeacher) => {
       if (existingTeacher) {
@@ -21,6 +19,7 @@ router.post("/add-teacher", (req, res) => {
       }
       const teacher = new Teacher({
         name,
+        rating,
       });
       teacher
         .save()
@@ -32,5 +31,16 @@ router.post("/add-teacher", (req, res) => {
         });
     })
     .catch((err) => console.log(err));
+});
+router.post("/search-teachers", (req, res) => {
+  const { name } = req.body;
+  Teacher.find({ name: name })
+    .then((teacher) => {
+      //response is teacher obj
+      res.json({ teacher });
+    })
+    .catch((err) => {
+      res.json({ error: err });
+    });
 });
 module.exports = router;
