@@ -1,4 +1,3 @@
-const e = require("express");
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
@@ -8,11 +7,11 @@ router.get("/", (req, res) => {
   res.send("Welcome");
 });
 router.post("/add-teacher", (req, res) => {
-  const { name } = req.body;
+  const { name, rating } = req.body;
   if (!name) {
     return res.status(422).json({ error: "need name" });
   }
-  Teacher.findOne({ name: name })
+  Teacher.findOne({ name: name, rating: rating })
     .then((existingTeacher) => {
       if (existingTeacher) {
         return res.status(422).json({ error: "already exists" });
