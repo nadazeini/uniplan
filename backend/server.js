@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
+var cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 require("./models/teacher");
+
+app.use(cors());
 
 app.use(express.json());
 
