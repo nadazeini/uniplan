@@ -5,9 +5,16 @@ import React, { useState } from "react";
 
 export default function App() {
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState({});
+  const [searched, setSearched] = useState(false);
 
   const example = ["Ex1", "Ex2", "Ex3", "Ex4", "Ex5"];
+
+// .then(res => console.log(res.teacher))
+
+// {results.map((entry) => (
+//   <div>{entry}</div>
+// ))}
 
 
   const getHome = () => {
@@ -23,12 +30,15 @@ export default function App() {
     const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: 'teacher3' })
+            body: JSON.stringify({ name: input })
         };
 
     fetch("http://localhost:5000/search-teachers/", requestOptions)
        .then(res => res.json())
-       .then(res => console.log(res));
+
+       .then(res => setResults(res.teacher[0]));
+
+      setSearched(true);
   };
 
   return (
@@ -60,9 +70,10 @@ export default function App() {
       </div>
 
       <div className="results">
-      {results.map((entry) => (
-        <div>{entry}</div>
-      ))}
+      {searched ? "teacher: " + results.name : ""}
+      </div>
+      <div>
+      {searched ? "rating: " + results.rating : ""}
       </div>
     </div>
   );
