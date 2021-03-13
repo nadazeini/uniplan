@@ -6,7 +6,7 @@ const teacherSchema = new mongoose.Schema({
     required: true,
   },
   rating: {
-    type: Number,
+    type: [Number],
   },
 });
 
