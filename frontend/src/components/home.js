@@ -1,47 +1,9 @@
-import "./styles.css";
-import logo6 from "./logo6.png";
+import "../styles.css";
+import logo6 from "../logo6.png";
 
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
-import Home from "./components/home";
-import EditReview from "./components/editReview";
-
-export default function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/review/edit">Edit Review</Link>
-            </li>
-          </ul>
-        </nav>
-
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/review/edit">
-            <EditReview />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-
+export default function Home() {
 
   const [search, setSearch] = useState("");
   const [results, setResults] = useState({});
