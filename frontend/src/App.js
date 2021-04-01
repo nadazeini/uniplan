@@ -17,24 +17,28 @@ import TranscriptFormProcessing from "./components/transcriptFormProcessing";
 export default function App() {
   return (
     <Router>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Uniplan</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><Link to="/">Home</Link></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><Link to="/review/edit">Edit Review</Link></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><Link to="/search-teachers">Display Teacher Result</Link></a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#"><Link to="/transcript">Transcript</Link></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/review/edit">Edit Review</Link>
-            </li>
-            <li>
-              <Link to="/search-teachers">Display Teacher Result</Link>
-            </li>
-            <li>
-              <Link to="/transcript">Transcript</Link>
-            </li>
-          </ul>
-        </nav>
-
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
