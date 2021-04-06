@@ -42,7 +42,13 @@ export default function Home() {
       setSearched(true);
   };
 
-
+  function avg(arr=[]){
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum+=arr[i];
+    }
+    return sum/arr.length;
+  }
 
   return (
     <div className="App">
@@ -73,10 +79,28 @@ export default function Home() {
       </div>
 
       <div className="results">
-      {searched ? "teacher: " + results.name : ""}
+      {searched ? "Teacher ID: " + results.id : ""}
       </div>
       <div>
-      {searched ? "rating: " + results.rating : ""}
+      {searched ? "Teacher Name: " + results.name : ""}
+      </div>
+      <div>
+      {searched ? "Department: " + results.department : ""}
+      </div>
+      <div>
+      {searched ? "Average rating: " + avg(results.ratings): ""} 
+      </div>
+      <div>
+      {searched ? "All ratings: " + results.ratings : ""}
+      </div>
+      <div>
+      {searched ? "Classes Taught: " + results.classestaught: ""}
+      </div>
+      <div>
+      {searched ? "Teacher Bio: " + results.bio: ""}
+      </div>
+      <div>
+      {searched ? "Reviews: " + results.reviews: ""}
       </div>
     </div>
   );
