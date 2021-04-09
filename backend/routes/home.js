@@ -42,4 +42,26 @@ router.post("/search-teachers", (req, res) => {
       res.json({ error: err });
     });
 });
+router.put("/add-rating", (req, res) => {
+  const {name, rating} = req.body;
+  Teacher.findOne({name:name})
+  	.then((existingTeacher) => {
+  		if (existingTeacher) {
+  			Teacher.updateOne({name: name},{ratings: rating}, function(
+    	err,
+    	result
+  		) {
+    		if (err) {
+      			res.send(err);
+    		} else {
+      			res.json(result);
+    		}
+  			});
+  		}
+  	});
+ teacher
+ 	.save() 
+
+  
+});
 module.exports = router;

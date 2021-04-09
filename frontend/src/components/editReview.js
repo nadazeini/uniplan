@@ -4,6 +4,20 @@ import './editReview.css';
 import React, { Component } from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 
+
+const updateTeacher = (input) => {
+
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: input })
+    };
+
+    fetch("http://localhost:5000/add-rating/", requestOptions)
+      .then(res => res.json())
+
+  };
+
 class EditReview extends Component {
     constructor(props) {
         super(props)
