@@ -12,7 +12,7 @@ const studentSchema = new mongoose.Schema({
     required: true,
   },
 
-  courseplan:[{{semester:String, year: Number},
+  courseplan: [{{term:String, year: Number},
                 [{course: String, teacher: String}]}],
   reviewsGiven: [{teacher: String, review: String}],
   ratingsGiven:[{teacher: String, review: String}]
