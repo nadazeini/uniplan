@@ -4,17 +4,32 @@ import './editReview.css';
 import React, { Component } from 'react'
 import StarRatingComponent from 'react-star-rating-component';
 
+
+const updateTeacher = (input) => {
+
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: input })
+    };
+
+    fetch("http://localhost:5000/add-rating/", requestOptions)
+      .then(res => res.json())
+
+  };
+
 class EditReview extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-            reviews: '',
+            teacherName: '',
             difficulty: 1,
             teachingAbility: 4,
             lectureClarity: 4,
             examDifficulty: 4,
             homeworkLoad: 4,
+            reviews: '',
         }
     }
     
@@ -54,14 +69,21 @@ class EditReview extends Component {
         })
     }
 
+    setTeacherName(value) {
+        this.setState({
+            teacherName: value
+        })
+    }
+
 
     handleSubmit = event => {
-        alert(`${"Review: "+this.state.reviews } 
+        alert(`${"Teacher Name: " +this.state.teacherName}
                 ${"\nDifficulty: "+ this.state.difficulty} 
                 ${"\nTeaching Ability: "+ this.state.teachingAbility}
                 ${"\nLecture Clarity: "+ this.state.lectureClarity}
                 ${"\nExam Difficulty: "+ this.state.examDifficulty}
-                ${"\nHomework Load: "+ this.state.homeworkLoad}`)
+                ${"\nHomework Load: "+ this.state.homeworkLoad}
+                ${"\nReview: "+this.state.reviews }`)
         event.preventDefault()
     }
 
@@ -75,6 +97,16 @@ class EditReview extends Component {
             // </form>
         <div class="container-md">
             <form onSubmit={this.handleSubmit}>
+                <div className = "teachername">
+                    <label class= "form-label">Name of professor you are leaving a review for:</label>
+                    <div>
+                        <input
+                         placeholder="Professor Name"
+                         onChange={(e) => this.setTeacherName(e.target.value)}
+                         required
+                         />
+                         </div> <br></br>
+                </div>
                 <div class="star-size">
                     <label class="form-label">Difficulty</label>
                     <div>
