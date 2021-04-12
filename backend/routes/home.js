@@ -44,19 +44,20 @@ router.post("/search-teachers", (req, res) => {
 });
 
 
+//add-class request
 router.post("/add-class", (req, res) => {
-  const {course, teacher} = req.body;
+  const {name, department} = req.body;
   if (!name) {
     return res.status(422).json({ error: "need course name" });
   }
-  Student.findOne({ course: course, teacher: teacher })
+  Course.findOne({ name: name, department: department})
     .then((existingCourse) => {
       if (existingCourse) {
         return res.status(422).json({ error: "this course already exists" });
       }
       const course = new Course({
-        course,
-        teacher,
+        name,
+        department,
       });
       course
         .save()
@@ -69,4 +70,32 @@ router.post("/add-class", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
+//add semester (courseplan) request
+router.post("/add-semester", (req, res) => {
+  const {year, term} = req.body;
+  if (!year {
+    return res.status(422).json({ error: "need semester year" });
+  }
+  CoursePlan.findOne({ year: year, term: term})
+    .then((existingCoursePlan) => {
+      if (existingCoursePlan) {
+        return res.status(422).json({ error: "this course plan already exists" });
+      }
+      const coursePlan = new CoursePlan({
+        year,
+        term,
+      });
+      coursePlan
+        .save()
+        .then((course) => {
+          res.json({ message: "course plan added" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
+});
+
 module.exports = router;
