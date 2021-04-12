@@ -34,7 +34,7 @@ router.post("/add-teacher", (req, res) => {
 router.post("/search-teachers", (req, res) => {
   const { name } = req.body;
   Teacher.find({ name: name })
-    .then((teacher) => {
+    .then((teacher) => { 
       //response is teacher obj
       res.json({ teacher });
     })
