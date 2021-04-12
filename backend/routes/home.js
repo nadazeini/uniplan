@@ -74,7 +74,7 @@ router.post("/add-class", (req, res) => {
 //add semester (courseplan) request
 router.post("/add-semester", (req, res) => {
   const {year, term} = req.body;
-  if (!year {
+  if (!year) {
     return res.status(422).json({ error: "need semester year" });
   }
   CoursePlan.findOne({ year: year, term: term})
