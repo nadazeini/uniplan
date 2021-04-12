@@ -39,6 +39,11 @@ export default function Home() {
 
        .then(res => setResults(res.teacher[0]));
 
+       // if () {
+       //
+       // }
+       //     { Object.keys(results).length !== 0 ?
+
       setSearched(true);
   };
 
@@ -79,29 +84,48 @@ export default function Home() {
       </div>
 
       <div className="results">
-      {searched ? "Teacher ID: " + results.id : ""}
-      </div>
-      <div>
-      {searched ? "Teacher Name: " + results.name : ""}
-      </div>
-      <div>
-      {searched ? "Department: " + results.department : ""}
-      </div>
-      <div>
-      {searched ? "Average rating: " + avg(results.ratings): ""} 
-      </div>
-      <div>
-      {searched ? "All ratings: " + results.ratings : ""}
-      </div>
-      <div>
-      {searched ? "Classes Taught: " + results.classestaught: ""}
-      </div>
-      <div>
-      {searched ? "Teacher Bio: " + results.bio: ""}
-      </div>
-      <div>
-      {searched ? "Reviews: " + results.reviews: ""}
+        <div className="info">
+        <div className="teacherName">
+          {searched ? results.name : ""}
+          </div>
+          <div>
+          {searched ? "Department: " + results.department : ""}
+          </div>
+          <div>
+          {searched ? "Average rating: " + avg(results.ratings): ""}
+          </div>
+          <div>
+          {searched ? "based on " + results.ratings.length + " ratings": ""}
+          </div>
+          <div>
+          {searched ? "Classes Taught: " + results.classestaught: ""}
+          </div>
+        </div>
+
+        <div className="bioReview">
+          <div>
+            <div className="bio">
+            {searched ? "About me": ""}
+            </div>
+            <div>
+            {searched ? results.bio: ""}
+            </div>
+          </div>
+          <div>
+            <div className="reviews">
+              <div>
+              {searched ? "Reviews:" : ""}
+              </div>
+            </div>
+          </div>
+          {searched ? results.reviews.map(entry => (
+            <div>
+              {entry}
+            </div>
+          )) : ""}
+        </div>
       </div>
     </div>
+
   );
 }
