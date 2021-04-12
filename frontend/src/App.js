@@ -2,44 +2,48 @@ import "./styles.css";
 import logo6 from "./logo6.png";
 
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Home from "./components/home";
 import EditReview from "./components/editReview";
 import DisplayTeacherResult from "./components/displayTeacherResult";
-import TranscriptFormProcessing from "./components/transcriptFormProcessing";
+import TranscriptForm from "./components/TranscriptForm";
 
 export default function App() {
   return (
     <Router>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Uniplan</a>
+          <a class="navbar-brand" href="#">
+            Uniplan
+          </a>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"><Link to="/">Home</Link></a>
+                <a class="nav-link active" aria-current="page" href="#">
+                  <Link to="/">Home</Link>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><Link to="/review/edit">Edit Review</Link></a>
+                <a class="nav-link" href="#">
+                  <Link to="/review/edit">Edit Review</Link>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><Link to="/search-teachers">Display Teacher Result</Link></a>
+                <a class="nav-link" href="#">
+                  <Link to="/search-teachers">Display Teacher Result</Link>
+                </a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="#"><Link to="/transcript">Transcript</Link></a>
+                <a class="nav-link" href="#">
+                  <Link to="/transcript">Transcript</Link>
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <div>
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -50,7 +54,7 @@ export default function App() {
             <DisplayTeacherResult />
           </Route>
           <Route path="/transcript">
-            <TranscriptFormProcessing />
+            <TranscriptForm />
           </Route>
           <Route path="/">
             <Home />
@@ -60,45 +64,38 @@ export default function App() {
     </Router>
   );
 
-
   const [search, setSearch] = useState("");
   const [results, setResults] = useState({});
   const [searched, setSearched] = useState(false);
 
   const example = ["Ex1", "Ex2", "Ex3", "Ex4", "Ex5"];
 
-// .then(res => console.log(res.teacher))
+  // .then(res => console.log(res.teacher))
 
-// {results.map((entry) => (
-//   <div>{entry}</div>
-// ))}
-
+  // {results.map((entry) => (
+  //   <div>{entry}</div>
+  // ))}
 
   const getHome = () => {
-
     fetch("http://localhost:5000/")
-       .then(res => res.text())
-       .then(res => setResults([res]));
+      .then((res) => res.text())
+      .then((res) => setResults([res]));
   };
-
 
   const getResults = (input) => {
-
     const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: input })
-        };
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: input }),
+    };
 
     fetch("http://localhost:5000/search-teachers/", requestOptions)
-       .then(res => res.json())
+      .then((res) => res.json())
 
-       .then(res => setResults(res.teacher[0]));
+      .then((res) => setResults(res.teacher[0]));
 
-      setSearched(true);
+    setSearched(true);
   };
-
-
 
   return (
     <div className="App">
@@ -129,11 +126,9 @@ export default function App() {
       </div>
 
       <div className="results">
-      {searched ? "teacher: " + results.name : ""}
+        {searched ? "teacher: " + results.name : ""}
       </div>
-      <div>
-      {searched ? "rating: " + results.rating : ""}
-      </div>
+      <div>{searched ? "rating: " + results.rating : ""}</div>
     </div>
   );
 }
