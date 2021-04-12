@@ -11,12 +11,11 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  reviewsGiven: {
-      type: [String]
-  },
-  rating: {
-    type: [Number],
-  },
+
+  courseplan:[{{semester:String, year: Number},
+                [{course: String, teacher: String}]}],
+  reviewsGiven: [{teacher: String, review: String}],
+  ratingsGiven:[{teacher: String, review: String}]
 });
 
 mongoose.model("Student", studentSchema);
