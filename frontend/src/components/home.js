@@ -8,14 +8,7 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState({});
   const [searched, setSearched] = useState(false);
-
-  const example = ["Ex1", "Ex2", "Ex3", "Ex4", "Ex5"];
-
-// .then(res => console.log(res.teacher))
-
-// {results.map((entry) => (
-//   <div>{entry}</div>
-// ))}
+ 
 
 
   const getHome = () => {
@@ -39,11 +32,6 @@ export default function Home() {
 
        .then(res => setResults(res.teacher[0]));
 
-       // if () {
-       //
-       // }
-       //     { Object.keys(results).length !== 0 ?
-
       setSearched(true);
   };
 
@@ -55,77 +43,148 @@ export default function Home() {
     return sum/arr.length;
   }
 
-  return (
-    <div className="App">
-      <div className="nav">
-        <img src={logo6} width="10%" />
-        <div className="buttons">
-          <button className="logIn">Login</button>
-          <button className="signUp">Sign Up</button>
-        </div>
-      </div>
-
-      <div className="search">
-        <img src={logo6} width="30%" />
-        <h3>Input a professor's name to search!</h3>
-
-        <input
-          placeholder="Your Professor"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          onClick={() => {
-            console.log(search);
-            getResults(search);
-          }}
-        >
-          Search
-        </button>
-      </div>
-
-      <div className="results">
-        <div className="info">
-        <div className="teacherName">
-          {searched ? results.name : ""}
-          </div>
-          <div>
-          {searched ? "Department: " + results.department : ""}
-          </div>
-          <div>
-          {searched ? "Average rating: " + avg(results.ratings): ""}
-          </div>
-          <div>
-          {searched ? "based on " + results.ratings.length + " ratings": ""}
-          </div>
-          <div>
-          {searched ? "Classes Taught: " + results.classestaught: ""}
-          </div>
-        </div>
-
-        <div className="bioReview">
-          <div>
-            <div className="bio">
-            {searched ? "About me": ""}
-            </div>
-            <div>
-            {searched ? results.bio: ""}
+  if (searched) {
+    if (results !== undefined && Object.keys(results).length !== 0) {
+      return (
+        <div className="App">
+          <div className="nav">
+            <img src={logo6} width="10%" />
+            <div className="buttons">
+              <button className="logIn">Login</button>
+              <button className="signUp">Sign Up</button>
             </div>
           </div>
-          <div>
-            <div className="reviews">
+
+          <div className="search">
+            <img src={logo6} width="30%" />
+            <h3>Input a professor's name to search!</h3>
+
+            <input
+              placeholder="Your Professor"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button
+              onClick={() => {
+                console.log(search);
+                getResults(search);
+              }}
+            >
+              Search
+            </button>
+          </div>
+
+          <div className="results">
+            <div className="info">
+            <div className="teacherName">
+              {searched ? results.name : ""}
+              </div>
               <div>
-              {searched ? "Reviews:" : ""}
+              {searched ? "Department: " + results.department : ""}
+              </div>
+              <div>
+              {searched ? "Average rating: " + avg(results.ratings): ""}
+              </div>
+              <div>
+              {searched ? "based on " + results.ratings.length + " ratings": ""}
+              </div>
+              <div>
+              {searched ? "Classes Taught: " + results.classestaught: ""}
               </div>
             </div>
-          </div>
-          {searched ? results.reviews.map(entry => (
-            <div>
-              {entry}
-            </div>
-          )) : ""}
-        </div>
-      </div>
-    </div>
 
-  );
+            <div className="bioReview">
+              <div>
+                <div className="bio">
+                {searched ? "About me": ""}
+                </div>
+                <div>
+                {searched ? results.bio: ""}
+                </div>
+              </div>
+              <div>
+                <div className="reviews">
+                  <div>
+                  {searched ? "Reviews:" : ""}
+                  </div>
+                </div>
+              </div>
+              {searched ? results.reviews.map(entry => (
+                <div>
+                  {entry}
+                </div>
+              )) : ""}
+            </div>
+          </div>
+        </div>
+
+      );
+    } else {
+      return (
+        <div className="App">
+          <div className="nav">
+            <img src={logo6} width="10%" />
+            <div className="buttons">
+              <button className="logIn">Login</button>
+              <button className="signUp">Sign Up</button>
+            </div>
+          </div>
+
+          <div className="search">
+            <img src={logo6} width="30%" />
+            <h3>Input a professor's name to search!</h3>
+
+            <input
+              placeholder="Your Professor"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <button
+              onClick={() => {
+                console.log(search);
+                getResults(search);
+              }}
+            >
+              Search
+            </button>
+          </div>
+
+          <div className="results">
+            No results found.
+          </div>
+        </div>
+      );
+    }
+  } else {
+    return (
+      <div className="App">
+        <div className="nav">
+          <img src={logo6} width="10%" />
+          <div className="buttons">
+            <button className="logIn">Login</button>
+            <button className="signUp">Sign Up</button>
+          </div>
+        </div>
+
+        <div className="search">
+          <img src={logo6} width="30%" />
+          <h3>Input a professor's name to search!</h3>
+
+          <input
+            placeholder="Your Professor"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button
+            onClick={() => {
+              console.log(search);
+              getResults(search);
+            }}
+          >
+            Search
+          </button>
+        </div>
+
+      </div>
+    );
+  }
+
+
 }
