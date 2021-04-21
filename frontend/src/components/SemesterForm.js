@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@material-ui/core/Button";
-import DeleteIcon from "@material-ui/icons/Delete";
-
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+
 function SemesterForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -18,7 +16,6 @@ function SemesterForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input,

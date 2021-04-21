@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import SemesterForm from "./SemesterForm";
-import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
-import SemesterList from "./SemesterList";
 import ClassCourse from "./CourseList";
 const Semester = ({
   semesters,

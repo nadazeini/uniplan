@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
-
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
   const [edit, setEdit] = useState({

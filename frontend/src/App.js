@@ -1,13 +1,11 @@
 import "./styles.css";
 import logo6 from "./logo6.png";
-
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import Home from "./components/home";
-import EditReview from "./components/editReview";
-import DisplayTeacherResult from "./components/displayTeacherResult";
-import TranscriptForm from "./components/TranscriptForm";
+import Home from "./pages/home";
+import EditReview from "./pages/editReview";
+import DisplayTeacherResult from "./pages/displayTeacherResult";
+import TranscriptForm from "./pages/transcriptForm";
 
 export default function App() {
   return (
@@ -100,7 +98,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="nav">
-        <img src={logo6} width="10%" />
+        <img alt="" src={logo6} width="10%" />
         <div className="buttons">
           <button className="logIn">Login</button>
           <button className="signUp">Sign Up</button>
@@ -108,7 +106,7 @@ export default function App() {
       </div>
 
       <div className="search">
-        <img src={logo6} width="30%" />
+        <img alt="" src={logo6} width="30%" />
         <h3>Input a professor's name to search!</h3>
 
         <input
