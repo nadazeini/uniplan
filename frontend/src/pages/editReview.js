@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./editReview.css";
-
+import "../styles/editReview.css";
 import React, { Component } from "react";
 import StarRatingComponent from "react-star-rating-component";
 
@@ -10,7 +9,6 @@ const updateTeacher = (input) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name: input }),
   };
-
   fetch("http://localhost:5000/add-rating/", requestOptions).then((res) =>
     res.json()
   );
@@ -19,7 +17,6 @@ const updateTeacher = (input) => {
 class EditReview extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       teacherName: "",
       difficulty: 1,
