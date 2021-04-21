@@ -6,12 +6,10 @@ const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
 
   const addSemester = (semester) => {
-    if (!semester.text || /^\s*$/.test(semester.text)) {
+    if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
       return;
     }
-
     const newSemesters = [semester, ...semesters];
-
     setSemesters(newSemesters);
     console.log(...semesters);
   };
