@@ -34,6 +34,9 @@ function SemesterForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!termInput || !yearInput) {
+      return;
+    }
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       term: termInput,
