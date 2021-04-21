@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SemesterForm from "./SemesterForm";
 import Semester from "./Semester";
 
-function SemesterList() {
+const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
 
   const addSemester = (semester) => {
@@ -53,6 +53,6 @@ function SemesterList() {
       ></Semester>
     </>
   );
-}
+};
 
 export default SemesterList;
