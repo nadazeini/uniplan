@@ -77,7 +77,7 @@ function SemesterForm(props) {
               style={{ marginLeft: "10px", width: "300px" }}
             >
               <InputLabel>Select term</InputLabel>
-              <Select onChange={handleTermChange} label="Age">
+              <Select onChange={handleTermChange} label="Age" value={termInput}>
                 <MenuItem value="Fall">Fall</MenuItem>
                 <MenuItem value="Winter">Winter</MenuItem>
                 <MenuItem value="Spring">Spring</MenuItem>
@@ -87,7 +87,11 @@ function SemesterForm(props) {
 
             <FormControl style={{ marginLeft: "10px", width: "300px" }}>
               <InputLabel>Select year</InputLabel>
-              <Select onChange={handleYearChange} label="Year">
+              <Select
+                onChange={handleYearChange}
+                label="Year"
+                value={yearInput}
+              >
                 {years.map((year, index) => {
                   return (
                     <MenuItem key={index} value={year}>
