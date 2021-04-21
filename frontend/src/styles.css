@@ -52,14 +52,12 @@
 }
 
 .info {
-
 }
 
 .bioReview {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .bio {

@@ -4,43 +4,37 @@ import logo6 from "../logo6.png";
 import React, { useState } from "react";
 
 export default function Home() {
-
   const [search, setSearch] = useState("");
   const [results, setResults] = useState({});
   const [searched, setSearched] = useState(false);
- 
-
 
   const getHome = () => {
-
     fetch("http://localhost:5000/")
-       .then(res => res.text())
-       .then(res => setResults([res]));
+      .then((res) => res.text())
+      .then((res) => setResults([res]));
   };
-
 
   const getResults = (input) => {
-
     const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name: input })
-        };
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: input }),
+    };
 
     fetch("http://localhost:5000/search-teachers/", requestOptions)
-       .then(res => res.json())
+      .then((res) => res.json())
 
-       .then(res => setResults(res.teacher[0]));
+      .then((res) => setResults(res.teacher[0]));
 
-      setSearched(true);
+    setSearched(true);
   };
 
-  function avg(arr=[]){
+  function avg(arr = []) {
     var sum = 0;
     for (var i = 0; i < arr.length; i++) {
-      sum+=arr[i];
+      sum += arr[i];
     }
-    return sum/arr.length;
+    return sum / arr.length;
   }
 
   if (searched) {
@@ -48,7 +42,7 @@ export default function Home() {
       return (
         <div className="App">
           <div className="nav">
-            <img src={logo6} width="10%" />
+            <img alt="" src={logo6} width="10%" />
             <div className="buttons">
               <button className="logIn">Login</button>
               <button className="signUp">Sign Up</button>
@@ -56,7 +50,7 @@ export default function Home() {
           </div>
 
           <div className="search">
-            <img src={logo6} width="30%" />
+            <img alt="" src={logo6} width="30%" />
             <h3>Input a professor's name to search!</h3>
 
             <input
@@ -75,54 +69,43 @@ export default function Home() {
 
           <div className="results">
             <div className="info">
-            <div className="teacherName">
-              {searched ? results.name : ""}
+              <div className="teacherName">{searched ? results.name : ""}</div>
+              <div>{searched ? "Department: " + results.department : ""}</div>
+              <div>
+                {searched ? "Average rating: " + avg(results.ratings) : ""}
               </div>
               <div>
-              {searched ? "Department: " + results.department : ""}
+                {searched
+                  ? "based on " + results.ratings.length + " ratings"
+                  : ""}
               </div>
               <div>
-              {searched ? "Average rating: " + avg(results.ratings): ""}
-              </div>
-              <div>
-              {searched ? "based on " + results.ratings.length + " ratings": ""}
-              </div>
-              <div>
-              {searched ? "Classes Taught: " + results.classestaught: ""}
+                {searched ? "Classes Taught: " + results.classestaught : ""}
               </div>
             </div>
 
             <div className="bioReview">
               <div>
-                <div className="bio">
-                {searched ? "About me": ""}
-                </div>
-                <div>
-                {searched ? results.bio: ""}
-                </div>
+                <div className="bio">{searched ? "About me" : ""}</div>
+                <div>{searched ? results.bio : ""}</div>
               </div>
               <div>
                 <div className="reviews">
-                  <div>
-                  {searched ? "Reviews:" : ""}
-                  </div>
+                  <div>{searched ? "Reviews:" : ""}</div>
                 </div>
               </div>
-              {searched ? results.reviews.map(entry => (
-                <div>
-                  {entry}
-                </div>
-              )) : ""}
+              {searched
+                ? results.reviews.map((entry) => <div>{entry}</div>)
+                : ""}
             </div>
           </div>
         </div>
-
       );
     } else {
       return (
         <div className="App">
           <div className="nav">
-            <img src={logo6} width="10%" />
+            <img alt="" src={logo6} width="10%" />
             <div className="buttons">
               <button className="logIn">Login</button>
               <button className="signUp">Sign Up</button>
@@ -130,7 +113,7 @@ export default function Home() {
           </div>
 
           <div className="search">
-            <img src={logo6} width="30%" />
+            <img alt="" src={logo6} width="30%" />
             <h3>Input a professor's name to search!</h3>
 
             <input
@@ -147,9 +130,7 @@ export default function Home() {
             </button>
           </div>
 
-          <div className="results">
-            No results found.
-          </div>
+          <div className="results">No results found.</div>
         </div>
       );
     }
@@ -157,7 +138,7 @@ export default function Home() {
     return (
       <div className="App">
         <div className="nav">
-          <img src={logo6} width="10%" />
+          <img alt="" src={logo6} width="10%" />
           <div className="buttons">
             <button className="logIn">Login</button>
             <button className="signUp">Sign Up</button>
@@ -165,7 +146,7 @@ export default function Home() {
         </div>
 
         <div className="search">
-          <img src={logo6} width="30%" />
+          <img alt="" src={logo6} width="30%" />
           <h3>Input a professor's name to search!</h3>
 
           <input
@@ -181,10 +162,7 @@ export default function Home() {
             Search
           </button>
         </div>
-
       </div>
     );
   }
-
-
 }
