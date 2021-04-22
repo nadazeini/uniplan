@@ -7,6 +7,9 @@ var cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 require("./models/teacher");
+require("./models/student");
+require("./models/courseplan");
+require("./models/course");
 
 app.use(cors());
 
