@@ -1,4 +1,5 @@
 const express = require("express");
+const { Db } = require("mongodb");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
@@ -121,4 +122,24 @@ router.put("/add-rating", (req, res) => {
   });
   teacher.save();
 });
+
+router.put("/add-review", (req, res) => {
+  const {teacherName, review} = req.body;
+  // using a temporary variable to hold placement of student's ID.
+  // We need to fix this after implementing login
+  const studentPlaceholder = 114793; 
+  if(!teacherName) {
+    return res.status(422).json({ error: "Please enter teacher's name" });
+  }
+  // if the student already left review for this teacher, prompt error msg
+  if(studentPlaceholder.find({"reviewsGiven" : [{teacher : teacherName}]})) {
+    return res.status(422).json({ error: "You already left review for this teacher" });
+  }
+  Teacher.updateOne(
+    { $push: {reviews: review} }
+  )
+  Student.updateOne(
+    { $push: {reviewsGiven: {teacher: teacherName, review: review}} }
+  )
+})
 module.exports = router;
