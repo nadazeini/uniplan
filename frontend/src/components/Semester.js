@@ -3,6 +3,7 @@ import SemesterForm from "./SemesterForm";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import ClassCourse from "./CourseList";
+import { TermAndYear } from "./TermAndYear";
 const Semester = ({
   semesters,
   completeSemester,
@@ -40,19 +41,7 @@ const Semester = ({
       className={semester.isComplete ? "semester-row complete" : "semester-row"}
       key={index}
     >
-      <div
-        style={{
-          display: "inline-block",
-          border: "2px solid black",
-          borderRadius: "10px",
-          padding: "10px 20px",
-          margin: "10px",
-        }}
-        key={semester.id}
-        onClick={() => completeSemester(semester.id)}
-      >
-        {semester.text}
-      </div>
+      <TermAndYear semester={semester} completeSemeste={completeSemester} />
       <div
         className="icons"
         style={{

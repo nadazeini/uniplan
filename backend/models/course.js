@@ -5,18 +5,16 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  department:
-  {
+  department: {
     type: String,
     required: true,
   },
-  number: Integer,
+  number: Number,
   courseDescription: String,
   teachers: [String],
-  semestersOffered: [{term:String, year:Number}],
-  reviewsGiven: [{teacher:String, review: String}],
-  ratingsGiven: [{teacher:String, rating: Number}]
-
+  semestersOffered: [{ term: String, year: Number }],
+  reviewsGiven: [{ teacher: String, review: String }],
+  ratingsGiven: [{ teacher: String, rating: Number }],
 });
 
 mongoose.model("Course", courseSchema);
