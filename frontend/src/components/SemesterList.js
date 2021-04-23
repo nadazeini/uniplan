@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SemesterForm from "./SemesterForm";
-import Semester from "./Semester";
+import Semesters from "./Semesters";
+import CourseList from "./CourseList";
 
 const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
@@ -14,41 +15,19 @@ const SemesterList = () => {
     console.log(...semesters);
   };
 
-  const editSemesterName = (semesterId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
-      return;
-    }
-
-    setSemesters((prev) =>
-      prev.map((item) => (item.id === semesterId ? newValue : item))
-    );
-  };
-
   const removeSemester = (id) => {
     const removedArr = [...semesters].filter((semester) => semester.id !== id);
 
     setSemesters(removedArr);
   };
 
-  const completeSemester = (id) => {
-    let updatedsemesters = semesters.map((semester) => {
-      if (semester.id === id) {
-        semester.isComplete = !semester.isComplete;
-      }
-      return semester;
-    });
-    setSemesters(updatedsemesters);
-  };
-
   return (
     <>
       <SemesterForm onSubmit={addSemester}></SemesterForm>
-      <Semester
+      <Semesters
         semesters={semesters}
-        completeSemester={completeSemester}
         removeSemester={removeSemester}
-        editSemesterName={editSemesterName}
-      ></Semester>
+      ></Semesters>
     </>
   );
 };

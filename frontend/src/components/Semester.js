@@ -1,31 +1,13 @@
 import React, { useState } from "react";
 import SemesterForm from "./SemesterForm";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-import ClassCourse from "./CourseList";
-import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { TermAndYear } from "./TermAndYear";
+import CourseList from "./CourseList";
 
-const Semester = ({ semesters, removeSemester, editSemesterName }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: "",
-  });
-
-  const submitUpdate = (value) => {
-    editSemesterName(edit.id, value);
-    setEdit({
-      id: null,
-      value: "",
-    });
-  };
-
-  if (edit.id) {
-    return <SemesterForm edit={edit} onSubmit={submitUpdate} />;
-  }
-
-  return semesters.map((semester, index) => (
+export const Semester = ({ semester, removeSemester }) => {
+  const [hideCourseInput, setHideCourseInput] = useState(true);
+  return (
     <div
       style={{
         marginLeft: "20px",
@@ -36,7 +18,6 @@ const Semester = ({ semesters, removeSemester, editSemesterName }) => {
         marginTop: "25px",
       }}
       className={semester.isComplete ? "semester-row complete" : "semester-row"}
-      key={index}
     >
       <TermAndYear semester={semester} />
       <div
@@ -49,25 +30,31 @@ const Semester = ({ semesters, removeSemester, editSemesterName }) => {
           padding: "10px 20px",
         }}
       >
-        {/* <EditIcon
-          onClick={() => setEdit({ id: semester.id, value: semester.text })}
-          className="edit-icon"
-          style={{ cursor: "pointer", marginRight: "15px" }}
+        <AddCircleIcon
+          style={{
+            cursor: "pointer",
+            marginTop: "-50px",
+            marginRight: "7px",
+            color: "#3574c3",
+          }}
           fontSize="small"
-        /> */}
+          onClick={() => {
+            setHideCourseInput(false);
+          }}
+        />
         <DeleteIcon
           style={{
             cursor: "pointer",
             marginTop: "-50px",
             marginRight: "-30px",
+            color: "red",
           }}
           fontSize="small"
           onClick={() => removeSemester(semester.id)}
         />
       </div>
-      <ClassCourse />
-    </div>
-  ));
-};
 
-export default Semester;
+      <CourseList hideCourseInput={hideCourseInput} />
+    </div>
+  );
+};
