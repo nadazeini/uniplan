@@ -58,15 +58,11 @@ function CourseForm(props) {
               name="text"
               style={{
                 marginLeft: "20px",
-                //   border: "2px solid black",
                 borderRadius: "10px",
-                // padding: "10px 20px",
                 marginTop: "5px",
                 display: "inline-block",
-                //   outline: "none",
               }}
               className="course-input"
-              // ref={inputRef}
             />
             <Button
               onClick={handleSubmit}
@@ -79,17 +75,6 @@ function CourseForm(props) {
               <AddCircleIcon />
             </Button>
           </>
-          {/* <h5
-            style={{
-              display: "inline-block",
-              border: "2px solid black",
-              borderRadius: "10px",
-              padding: "10px 20px",
-              margin: "10px",
-            }}
-          >
-            Classes
-          </h5> */}
         </>
       )}
     </form>
