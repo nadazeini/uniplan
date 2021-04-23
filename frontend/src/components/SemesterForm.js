@@ -104,7 +104,7 @@ function SemesterForm(props) {
 
             <Button
               onClick={handleSubmit}
-              style={{ marginTop: "15px" }}
+              style={{ marginTop: "15px", color: "#3574c3" }}
               className="semester-button"
             >
               <AddCircleIcon />
