@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@material-ui/core/Button";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
 import TextField from "@material-ui/core/TextField";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 function CourseForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
@@ -48,33 +48,40 @@ function CourseForm(props) {
         </>
       ) : (
         <>
-          <>
-            <TextField
-              id="standard-basic"
-              label="Enter course name"
-              placeholder="New course"
-              value={input}
-              onChange={handleChange}
-              name="text"
-              style={{
-                marginLeft: "20px",
-                borderRadius: "10px",
-                marginTop: "5px",
-                display: "inline-block",
-              }}
-              className="course-input"
-            />
-            <Button
-              onClick={handleSubmit}
-              style={{
-                marginTop: "-50px",
-                marginLeft: "175px",
-                background: "transparent",
-              }}
-            >
-              <AddCircleIcon />
-            </Button>
-          </>
+          {!props.hideCourseInput ? (
+            <>
+              <TextField
+                id="standard-basic"
+                label="Enter course name"
+                placeholder="New course"
+                value={input}
+                onChange={handleChange}
+                name="text"
+                style={{
+                  marginLeft: "20px",
+                  borderRadius: "10px",
+                  marginTop: "5px",
+                  display: "inline-block",
+                }}
+                className="course-input"
+              />
+              <Button
+                onClick={handleSubmit}
+                style={{
+                  marginTop: "-50px",
+                  marginLeft: "175px",
+                  backgroundColor: "transparent",
+                  color: "green",
+                  //to change based on whenever use enters
+                }}
+                disableRipple
+              >
+                <CheckCircleIcon fontSize="small" />
+              </Button>
+            </>
+          ) : (
+            <></>
+          )}
         </>
       )}
     </form>

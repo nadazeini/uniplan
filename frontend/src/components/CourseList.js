@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CourseForm from "./CourseForm";
 import Course from "./Course";
 
-function CourseList() {
+function CourseList(props) {
   const [courses, setCourses] = useState([]);
 
   const addClass = (course) => {
@@ -44,7 +44,7 @@ function CourseList() {
 
   return (
     <>
-      <CourseForm onSubmit={addClass} />
+      <CourseForm onSubmit={addClass} hideCourseInput={props.hideCourseInput} />
       <Course
         courses={courses}
         completeCourse={completeCourse}
