@@ -102,7 +102,11 @@ function SemesterForm(props) {
               </Select>
             </FormControl>
 
-            <Button onClick={handleSubmit} className="semester-button">
+            <Button
+              onClick={handleSubmit}
+              style={{ marginTop: "15px" }}
+              className="semester-button"
+            >
               <AddCircleIcon />
             </Button>
           </>

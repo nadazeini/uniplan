@@ -3,13 +3,11 @@ import SemesterForm from "./SemesterForm";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import ClassCourse from "./CourseList";
+import Button from "@material-ui/core/Button";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { TermAndYear } from "./TermAndYear";
-const Semester = ({
-  semesters,
-  completeSemester,
-  removeSemester,
-  editSemesterName,
-}) => {
+
+const Semester = ({ semesters, removeSemester, editSemesterName }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
@@ -30,18 +28,17 @@ const Semester = ({
   return semesters.map((semester, index) => (
     <div
       style={{
-        marginLeft: "40px",
+        marginLeft: "20px",
         width: "30%",
         border: "none",
         border: "2px solid black",
-        borderRadius: "10px",
         padding: "5px",
-        marginTop: "5px",
+        marginTop: "25px",
       }}
       className={semester.isComplete ? "semester-row complete" : "semester-row"}
       key={index}
     >
-      <TermAndYear semester={semester} completeSemeste={completeSemester} />
+      <TermAndYear semester={semester} />
       <div
         className="icons"
         style={{
@@ -52,14 +49,18 @@ const Semester = ({
           padding: "10px 20px",
         }}
       >
-        <EditIcon
+        {/* <EditIcon
           onClick={() => setEdit({ id: semester.id, value: semester.text })}
           className="edit-icon"
           style={{ cursor: "pointer", marginRight: "15px" }}
           fontSize="small"
-        />
+        /> */}
         <DeleteIcon
-          style={{ cursor: "pointer" }}
+          style={{
+            cursor: "pointer",
+            marginTop: "-50px",
+            marginRight: "-30px",
+          }}
           fontSize="small"
           onClick={() => removeSemester(semester.id)}
         />
