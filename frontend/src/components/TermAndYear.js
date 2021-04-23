@@ -8,7 +8,6 @@ export const TermAndYear = ({ semester, completeSemester }) => {
         borderRadius: "10px",
       }}
       key={semester.id}
-      onClick={() => completeSemester(semester.id)}
     >
       {semester.term + " " + semester.year}
     </div>

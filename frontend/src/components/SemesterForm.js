@@ -14,7 +14,7 @@ function SemesterForm(props) {
     props.edit ? props.edit.value : ""
   );
   const [semesters, setSemesters] = useState([]);
-  const inputRef = useRef(null);
+
   semesters.push("something"); //to later get dynamically from db (get request)
 
   //get years for dropdown
@@ -62,7 +62,6 @@ function SemesterForm(props) {
               }}
               onChange={handleTermChange}
               name="text"
-              ref={inputRef}
               className="semester-input edit"
             />
 
