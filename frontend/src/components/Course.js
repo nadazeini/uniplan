@@ -3,25 +3,24 @@ import CourseForm from "./CourseForm";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
-const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: "",
-  });
+export const Course = ({ course, removeCourse, updateCourse }) => {
+  //   const [edit, setEdit] = useState({
+  //     id: null,
+  //     value: "",
+  //   });
 
-  const submitUpdate = (value) => {
-    updateCourse(edit.id, value);
-    setEdit({
-      id: null,
-      value: "",
-    });
-  };
+  //   const submitUpdate = (value) => {
+  //     updateCourse(edit.id, value);
+  //     setEdit({
+  //       id: null,
+  //       value: "",
+  //     });
+  //   };
 
-  if (edit.id) {
-    return <CourseForm edit={edit} onSubmit={submitUpdate} />;
-  }
-
-  return courses.map((course, index) => (
+  //   if (edit.id) {
+  //     return <CourseForm edit={edit} onSubmit={submitUpdate} />;
+  //   }
+  return (
     <div
       style={{
         marginLeft: "30px",
@@ -30,8 +29,6 @@ const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
         padding: "5px",
         margin: "10px",
       }}
-      className={course.isComplete ? "course-row complete" : "course-row"}
-      key={index}
     >
       <div
         style={{
@@ -41,10 +38,8 @@ const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
           padding: "10px 20px",
           borderRadius: "10px",
         }}
-        key={course.id}
-        onClick={() => completeCourse(course.id)}
       >
-        {course.text}
+        {course.name}
       </div>
       <div
         className="icons"
@@ -55,12 +50,12 @@ const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
           padding: "10px 20px",
         }}
       >
-        <EditIcon
-          onClick={() => setEdit({ id: course.id, value: course.text })}
+        {/* <EditIcon
+          onClick={() => setEdit({ id: course.id, value: course.name })}
           className="edit-icon"
           style={{ cursor: "pointer", marginRight: "15px" }}
           fontSize="small"
-        />
+        /> */}
         <DeleteIcon
           style={{ cursor: "pointer" }}
           fontSize="small"
@@ -68,7 +63,6 @@ const Course = ({ courses, completeCourse, removeCourse, updateCourse }) => {
         />
       </div>
     </div>
-  ));
+  );
 };
-
 export default Course;

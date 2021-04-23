@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
-import Course from "./Course";
+import Courses from "./Courses";
 
 function CourseList(props) {
   const [courses, setCourses] = useState([]);
 
   const addClass = (course) => {
-    if (!course.text || /^\s*$/.test(course.text)) {
+    if (!course.name || /^\s*$/.test(course.name)) {
       return;
     }
+    // courses.push(course);
+    // const newCourses = [...courses];
+    // setCourses(newCourses);
+    // console.log(...courses);
 
     const newCourses = [course, ...courses];
 
@@ -17,7 +21,7 @@ function CourseList(props) {
   };
 
   const updateCourse = (courseId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+    if (!newValue.name || /^\s*$/.test(newValue.name)) {
       return;
     }
 
@@ -32,22 +36,11 @@ function CourseList(props) {
     setCourses(removedArr);
   };
 
-  const completeCourse = (id) => {
-    let updatedCourses = courses.map((course) => {
-      if (course.id === id) {
-        course.isComplete = !course.isComplete;
-      }
-      return course;
-    });
-    setCourses(updatedCourses);
-  };
-
   return (
     <>
       <CourseForm onSubmit={addClass} hideCourseInput={props.hideCourseInput} />
-      <Course
+      <Courses
         courses={courses}
-        completeCourse={completeCourse}
         removeCourse={removeCourse}
         updateCourse={updateCourse}
       />

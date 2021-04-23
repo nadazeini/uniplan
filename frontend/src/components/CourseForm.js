@@ -6,7 +6,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 function CourseForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
   // useEffect(() => {
   //   inputRef.current.focus();
@@ -21,7 +21,7 @@ function CourseForm(props) {
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input,
+      name: input,
     });
     setInput("");
   };
@@ -39,7 +39,6 @@ function CourseForm(props) {
             }}
             onChange={handleChange}
             name="text"
-            ref={inputRef}
             className="course-input edit"
           />
           <Button onClick={handleSubmit} className="course-button edit">
