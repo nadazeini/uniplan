@@ -10,6 +10,16 @@ const SemesterList = () => {
     if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
       return;
     }
+
+    const found = semesters.some(
+      (value) =>
+        value["year"] === semester.year && value["term"] === semester.term
+    );
+
+    if (found) {
+      console.log("already added");
+      return;
+    }
     semesters.push(semester);
     const newSemesters = [...semesters];
 
