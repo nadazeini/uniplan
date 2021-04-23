@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import TextField from "@material-ui/core/TextField";
+
 function CourseForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
   const inputRef = useRef(null);
 
-  useEffect(() => {
-    inputRef.current.focus();
-  });
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // });
 
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -46,26 +48,38 @@ function CourseForm(props) {
         </>
       ) : (
         <>
-          <input
-            placeholder="New Class"
-            value={input}
-            onChange={handleChange}
-            name="text"
-            style={{
-              marginLeft: "40px",
-              border: "2px solid black",
-              borderRadius: "10px",
-              padding: "10px 20px",
-              marginBottom: "20px",
-              outline: "none",
-            }}
-            className="course-input"
-            ref={inputRef}
-          />
-          <Button onClick={handleSubmit} className="course-button">
-            <AddCircleIcon />
-          </Button>
-          <h5
+          <>
+            <TextField
+              id="standard-basic"
+              label="Enter course name"
+              placeholder="New course"
+              value={input}
+              onChange={handleChange}
+              name="text"
+              style={{
+                marginLeft: "20px",
+                //   border: "2px solid black",
+                borderRadius: "10px",
+                // padding: "10px 20px",
+                marginTop: "5px",
+                display: "inline-block",
+                //   outline: "none",
+              }}
+              className="course-input"
+              // ref={inputRef}
+            />
+            <Button
+              onClick={handleSubmit}
+              style={{
+                marginTop: "-50px",
+                marginLeft: "175px",
+                background: "transparent",
+              }}
+            >
+              <AddCircleIcon />
+            </Button>
+          </>
+          {/* <h5
             style={{
               display: "inline-block",
               border: "2px solid black",
@@ -75,7 +89,7 @@ function CourseForm(props) {
             }}
           >
             Classes
-          </h5>
+          </h5> */}
         </>
       )}
     </form>
