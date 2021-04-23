@@ -12,9 +12,11 @@ export const Semester = ({ semester, removeSemester }) => {
       style={{
         marginLeft: "20px",
         width: "30%",
+        display: "inline-block",
         border: "none",
         border: "2px solid black",
         padding: "5px",
+        verticalAlign: "top",
         marginTop: "25px",
       }}
       className={semester.isComplete ? "semester-row complete" : "semester-row"}
@@ -26,8 +28,9 @@ export const Semester = ({ semester, removeSemester }) => {
           textAlign: "right",
           display: "inline-block",
           float: "right",
-          margin: "10px",
-          padding: "10px 20px",
+          marginRight: "15px",
+          marginTop: "15px",
+          padding: "7px 20px",
         }}
       >
         <AddCircleIcon
