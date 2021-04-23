@@ -13,7 +13,7 @@ const SemesterList = () => {
     semesters.push(semester);
     const newSemesters = [...semesters];
 
-    //sort by year
+    //sort by year, term if equal
     let term_order = ["Fall", "Winter", "Spring", "Summer"];
     newSemesters.sort((semester1, semester2) =>
       semester1.year > semester2.year
@@ -23,8 +23,7 @@ const SemesterList = () => {
           term_order.indexOf(semester2.term)
         : -1
     );
-    //sort by term
-
+    //apply changes
     setSemesters(newSemesters);
   };
 
