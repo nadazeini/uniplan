@@ -10,14 +10,14 @@ const SemesterList = () => {
     if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
       return;
     }
-    const newSemesters = [semester, ...semesters];
+    semesters.push(semester);
+    const newSemesters = [...semesters];
     setSemesters(newSemesters);
     console.log(...semesters);
   };
 
   const removeSemester = (id) => {
     const removedArr = [...semesters].filter((semester) => semester.id !== id);
-
     setSemesters(removedArr);
   };
 
