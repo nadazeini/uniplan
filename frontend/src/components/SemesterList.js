@@ -12,8 +12,20 @@ const SemesterList = () => {
     }
     semesters.push(semester);
     const newSemesters = [...semesters];
+
+    //sort by year
+    let term_order = ["Fall", "Winter", "Spring", "Summer"];
+    newSemesters.sort((semester1, semester2) =>
+      semester1.year > semester2.year
+        ? 1
+        : semester1.year === semester2.year
+        ? term_order.indexOf(semester1.term) -
+          term_order.indexOf(semester2.term)
+        : -1
+    );
+    //sort by term
+
     setSemesters(newSemesters);
-    console.log(...semesters);
   };
 
   const removeSemester = (id) => {
