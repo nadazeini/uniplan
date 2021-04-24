@@ -16,7 +16,7 @@ export default function LoginPage() {
       <div className="wrap">
         <h3>Log Into Your Account</h3>
 
-        <input
+        <input type = "email"
           placeholder="Email"
         />
         <br></br> <br></br>
