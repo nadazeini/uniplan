@@ -76,3 +76,17 @@
   font-size: 40px;
   font-weight: bold;
 }
+
+.title{
+  font-size: 40px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.wrap {   
+  width: 40%;
+  margin: 0 auto;
+  padding: 25px;   
+  background-color: powderblue;  
+}   
+
