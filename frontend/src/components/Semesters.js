@@ -15,6 +15,7 @@ const Semesters = ({ semesters, removeSemester }) => {
           <Semester
             key={index}
             semester={semester}
+            semesters={semesters}
             removeSemester={removeSemester}
           />
         );

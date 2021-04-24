@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import FormControl from "@material-ui/core/FormControl";
@@ -41,6 +41,7 @@ function SemesterForm(props) {
       id: Math.floor(Math.random() * 10000),
       term: termInput,
       year: yearInput,
+      courses: [],
     });
     setTermInput("");
     setYearInput("");

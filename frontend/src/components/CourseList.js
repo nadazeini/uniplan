@@ -9,15 +9,15 @@ function CourseList(props) {
     if (!course.name || /^\s*$/.test(course.name)) {
       return;
     }
-    // courses.push(course);
-    // const newCourses = [...courses];
-    // setCourses(newCourses);
-    // console.log(...courses);
-
-    const newCourses = [course, ...courses];
-
+    courses.push(course);
+    const newCourses = [...courses];
     setCourses(newCourses);
-    console.log(...courses);
+    props.semesters.courses = courses;
+    props.setSemesters(props.semesters);
+
+    //
+    // const newSemesters = [props.semester, ...props.semesters];
+    // props.setSemesters(newSemesters);
   };
 
   const updateCourse = (courseId, newValue) => {
@@ -38,7 +38,11 @@ function CourseList(props) {
 
   return (
     <>
-      <CourseForm onSubmit={addClass} hideCourseInput={props.hideCourseInput} />
+      <CourseForm
+        semester={props.semester}
+        onSubmit={addClass}
+        hideCourseInput={props.hideCourseInput}
+      />
       <Courses
         courses={courses}
         removeCourse={removeCourse}
