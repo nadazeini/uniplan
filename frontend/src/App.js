@@ -14,6 +14,8 @@ const routes = [
   { path: '/review/edit', name: 'Edit Review', Component: EditReview },
   { path: '/search-teachers', name: 'Display Teacher Result', Component:  DisplayTeacherResult},
   { path: '/transcript', name: 'Transcript', Component: TranscriptForm },
+  { path: '/login', name: 'Log In', Component: TranscriptForm },
+  { path: '/signup', name: 'Sign Up', Component: TranscriptForm },
 ];
 
 export default function App() {
@@ -38,7 +40,7 @@ export default function App() {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <Link to="/search-teachers">Display Teacher Result</Link>
+                  <Link to="/search-teachers">Search for a Professor</Link>
                 </a>
               </li>
               <li class="nav-item">
