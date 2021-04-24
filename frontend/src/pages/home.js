@@ -45,8 +45,8 @@ export default function Home() {
           <div className="nav">
             <img alt="" src={logo6} width="10%" />
             <div className="buttons">
-              <button className="logIn">Login</button>
-              <button className="signUp">Sign Up</button>
+              <Link to = "/login"><button className="logIn">Login</button></Link>
+              <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
             </div>
           </div>
 
@@ -108,8 +108,8 @@ export default function Home() {
           <div className="nav">
             <img alt="" src={logo6} width="10%" />
             <div className="buttons">
-              <button className="logIn">Login</button>
-              <button className="signUp">Sign Up</button>
+              <Link to = "/login"><button className="logIn">Login</button></Link>
+              <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ export default function Home() {
           <img alt="" src={logo6} width="10%" />
           <div className="buttons">
             <Link to = "/login"><button className="logIn">Login</button></Link>
-            <button className="signUp">Sign Up</button>
+            <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
           </div>
         </div>
 

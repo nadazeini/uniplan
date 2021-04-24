@@ -7,6 +7,7 @@ import EditReview from "./pages/editReview";
 import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
 import LoginPage from "./pages/loginpage"
+import SignUpPage from "./pages/signuppage"
 
 export default function App() {
   return (
@@ -48,6 +49,9 @@ export default function App() {
         <Switch>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUpPage />
           </Route>
           <Route path="/review/edit">
             <EditReview />
