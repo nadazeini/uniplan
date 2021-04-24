@@ -1,6 +1,6 @@
 import React from "react";
-
-export const TermAndYear = ({ semester, completeSemester }) => {
+import Course from "./Course";
+export const TermAndYear = ({ semester }) => {
   return (
     <div
       style={{

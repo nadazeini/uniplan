@@ -4,22 +4,22 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
 export const Course = ({ course, removeCourse, updateCourse }) => {
-  //   const [edit, setEdit] = useState({
-  //     id: null,
-  //     value: "",
-  //   });
+  const [edit, setEdit] = useState({
+    id: null,
+    value: "",
+  });
 
-  //   const submitUpdate = (value) => {
-  //     updateCourse(edit.id, value);
-  //     setEdit({
-  //       id: null,
-  //       value: "",
-  //     });
-  //   };
+  const submitUpdate = (value) => {
+    updateCourse(edit.id, value);
+    setEdit({
+      id: null,
+      value: "",
+    });
+  };
 
-  //   if (edit.id) {
-  //     return <CourseForm edit={edit} onSubmit={submitUpdate} />;
-  //   }
+  if (edit.id) {
+    return <CourseForm edit={edit} onSubmit={submitUpdate} />;
+  }
   return (
     <div
       style={{
@@ -50,12 +50,12 @@ export const Course = ({ course, removeCourse, updateCourse }) => {
           padding: "10px 20px",
         }}
       >
-        {/* <EditIcon
+        <EditIcon
           onClick={() => setEdit({ id: course.id, value: course.name })}
           className="edit-icon"
           style={{ cursor: "pointer", marginRight: "15px" }}
           fontSize="small"
-        /> */}
+        />
         <DeleteIcon
           style={{ cursor: "pointer" }}
           fontSize="small"

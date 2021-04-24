@@ -5,13 +5,6 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 
 function CourseForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
-  // const inputRef = useRef(null);
-
-  // useEffect(() => {
-  //   inputRef.current.focus();
-  // });
-
   const handleChange = (e) => {
     setInput(e.target.value);
   };
