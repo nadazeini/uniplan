@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default function loginPage() {
+export default function LoginPage() {
     return(
         <div>
         Login Page

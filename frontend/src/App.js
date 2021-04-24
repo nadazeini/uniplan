@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import EditReview from "./pages/editReview";
 import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
+import LoginPage from "./pages/loginpage"
 
 export default function App() {
   return (
@@ -45,6 +46,9 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
           <Route path="/review/edit">
             <EditReview />
           </Route>
