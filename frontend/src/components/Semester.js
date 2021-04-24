@@ -11,16 +11,16 @@ import Course from "./Course";
 
 export const Semester = ({ semester, removeSemester }) => {
   const [hideCourseInput, setHideCourseInput] = useState(true);
-  const [courses, setCourses] = useState([]);
+  // const [courses, setCourses] = useState([]);
   const addCourse = (course) => {
     if (!course.name || /^\s*$/.test(course.name)) {
       return;
     }
-    courses.push(course);
-    const newCourses = [...courses];
-    setCourses(newCourses);
+    // courses.push(course);
+    // const newCourses = [...courses];
+    // setCourses(newCourses);
     // console.log(courses);
-    semester.courses = courses;
+    semester.courses.push(course);
     // console.log(semester.term);
     // console.log(semester.courses);
   };
