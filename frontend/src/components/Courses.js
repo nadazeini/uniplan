@@ -20,7 +20,7 @@ const Courses = ({ semester }) => {
       prev.map((item) => (item.id === courseId ? newValue : item))
     );
     //find course to update in courses of the semester
-    courses.forEach((course) => {
+    semester.courses.forEach((course) => {
       if (course.id === courseId) {
         course.name = newValue.name;
       }
