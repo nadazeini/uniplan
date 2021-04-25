@@ -4,8 +4,8 @@ export const TermAndYear = ({ semester }) => {
   return (
     <div
       style={{
-        display: "inline-block",
         borderRadius: "10px",
+        fontWeight: "bold",
       }}
       key={semester.id}
     >

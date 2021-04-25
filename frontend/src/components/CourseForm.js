@@ -27,7 +27,7 @@ function CourseForm(props) {
             placeholder="Edit your class"
             value={input}
             style={{
-              marginLeft: "100px",
+              marginLeft: "20px",
               outline: "none",
             }}
             onChange={handleChange}
@@ -41,7 +41,14 @@ function CourseForm(props) {
       ) : (
         <>
           {!props.hideCourseInput ? (
-            <>
+            <div
+              style={{
+                border: "2px solid red",
+                borderRadius: "10px",
+                marginTop: "5px",
+                display: "inline-block",
+              }}
+            >
               <TextField
                 id="standard-basic"
                 label="Enter course name"
@@ -50,12 +57,11 @@ function CourseForm(props) {
                 onChange={handleChange}
                 name="text"
                 style={{
-                  marginLeft: "20px",
+                  border: "2px solid red",
                   borderRadius: "10px",
                   marginTop: "5px",
                   display: "inline-block",
                 }}
-                className="course-input"
               />
               <Button
                 onClick={handleSubmit}
@@ -70,7 +76,7 @@ function CourseForm(props) {
               >
                 <CheckCircleIcon fontSize="small" />
               </Button>
-            </>
+            </div>
           ) : (
             <></>
           )}

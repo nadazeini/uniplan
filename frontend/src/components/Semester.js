@@ -51,20 +51,15 @@ export const Semester = ({ semester, removeSemester }) => {
       <div
         className="icons"
         style={{
-          textAlign: "right",
-          display: "inline-block",
           float: "right",
-          marginRight: "15px",
-          marginTop: "15px",
-          padding: "7px 20px",
+          marginTop: "-25px",
         }}
       >
         <AddCircleIcon
           style={{
             cursor: "pointer",
-            marginTop: "-50px",
-            marginRight: "7px",
             color: "#3574c3",
+            marginRight: "10px",
           }}
           fontSize="small"
           onClick={() => {
@@ -74,8 +69,6 @@ export const Semester = ({ semester, removeSemester }) => {
         <DeleteIcon
           style={{
             cursor: "pointer",
-            marginTop: "-50px",
-            marginRight: "-30px",
             color: "red",
           }}
           fontSize="small"
@@ -92,10 +85,9 @@ export const Semester = ({ semester, removeSemester }) => {
             onChange={handleCourseChange}
             name="text"
             style={{
+              float: "left",
               marginLeft: "20px",
-              borderRadius: "10px",
-              marginTop: "5px",
-              display: "inline-block",
+              marginTop: "20px",
             }}
             className="course-input"
             onKeyDownCapture={(e) => {
@@ -108,7 +100,7 @@ export const Semester = ({ semester, removeSemester }) => {
             onClick={handleCourseSubmit}
             style={{
               marginTop: "-50px",
-              marginLeft: "175px",
+              marginLeft: "200px",
               backgroundColor: "transparent",
               color: "green",
               //to change based on whenever use enters

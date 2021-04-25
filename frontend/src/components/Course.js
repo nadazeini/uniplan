@@ -23,20 +23,18 @@ export const Course = ({ course, removeCourse, updateCourse }) => {
   return (
     <div
       style={{
-        marginLeft: "30px",
-        width: "90%",
-        border: "none",
+        marginTop: "10px",
+        marginBottom: "10px",
         padding: "5px",
-        margin: "10px",
+        borderBottom: "1px solid black",
       }}
     >
       <div
         style={{
           marginLeft: "20px",
           display: "inline-block",
-          border: "2px solid black",
-          padding: "10px 20px",
-          borderRadius: "10px",
+          textTransform: "uppercase",
+          fontFamily: "Avenir Heavy",
         }}
       >
         {course.name}
@@ -47,17 +45,16 @@ export const Course = ({ course, removeCourse, updateCourse }) => {
           textAlign: "right",
           display: "inline-block",
           float: "right",
-          padding: "10px 20px",
         }}
       >
         <EditIcon
           onClick={() => setEdit({ id: course.id, value: course.name })}
           className="edit-icon"
-          style={{ cursor: "pointer", marginRight: "15px" }}
+          style={{ cursor: "pointer", marginRight: "10px" }}
           fontSize="small"
         />
         <DeleteIcon
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", marginRight: "-5px" }}
           fontSize="small"
           onClick={() => removeCourse(course.id)}
         />
