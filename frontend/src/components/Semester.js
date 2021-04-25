@@ -109,6 +109,11 @@ export const Semester = ({ semester, removeSemester }) => {
           display: "inline-block",
         }}
         className="course-input"
+            onKeyDownCapture={(e) => {
+              if (e.key === "Enter") {
+                handleCourseSubmit(e);
+              }
+            }}
       />
       <Button
         onClick={handleCourseSubmit}
