@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import FormControl from "@material-ui/core/FormControl";
@@ -14,7 +14,7 @@ function SemesterForm(props) {
     props.edit ? props.edit.value : ""
   );
   const [semesters, setSemesters] = useState([]);
-  const inputRef = useRef(null);
+
   semesters.push("something"); //to later get dynamically from db (get request)
 
   //get years for dropdown
@@ -41,6 +41,7 @@ function SemesterForm(props) {
       id: Math.floor(Math.random() * 10000),
       term: termInput,
       year: yearInput,
+      courses: [],
     });
     setTermInput("");
     setYearInput("");
@@ -62,7 +63,6 @@ function SemesterForm(props) {
               }}
               onChange={handleTermChange}
               name="text"
-              ref={inputRef}
               className="semester-input edit"
             />
 
@@ -102,7 +102,11 @@ function SemesterForm(props) {
               </Select>
             </FormControl>
 
-            <Button onClick={handleSubmit} className="semester-button">
+            <Button
+              onClick={handleSubmit}
+              style={{ marginTop: "15px", color: "#3574c3" }}
+              className="semester-button"
+            >
               <AddCircleIcon />
             </Button>
           </>

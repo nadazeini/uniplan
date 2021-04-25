@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SemesterForm from "./SemesterForm";
-import Semester from "./Semester";
+import Semesters from "./Semesters";
+import CourseList from "./CourseList";
 
 const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
@@ -9,46 +10,45 @@ const SemesterList = () => {
     if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
       return;
     }
-    const newSemesters = [semester, ...semesters];
-    setSemesters(newSemesters);
-    console.log(...semesters);
-  };
 
-  const editSemesterName = (semesterId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+    const found = semesters.some(
+      (value) =>
+        value["year"] === semester.year && value["term"] === semester.term
+    );
+
+    if (found) {
+      console.log("already added");
       return;
     }
+    semesters.push(semester);
+    const newSemesters = [...semesters];
 
-    setSemesters((prev) =>
-      prev.map((item) => (item.id === semesterId ? newValue : item))
+    //sort by year, term if equal
+    let term_order = ["Fall", "Winter", "Spring", "Summer"];
+    newSemesters.sort((semester1, semester2) =>
+      semester1.year > semester2.year
+        ? 1
+        : semester1.year === semester2.year
+        ? term_order.indexOf(semester1.term) -
+          term_order.indexOf(semester2.term)
+        : -1
     );
+    //apply changes
+    setSemesters(newSemesters);
   };
 
   const removeSemester = (id) => {
     const removedArr = [...semesters].filter((semester) => semester.id !== id);
-
     setSemesters(removedArr);
-  };
-
-  const completeSemester = (id) => {
-    let updatedsemesters = semesters.map((semester) => {
-      if (semester.id === id) {
-        semester.isComplete = !semester.isComplete;
-      }
-      return semester;
-    });
-    setSemesters(updatedsemesters);
   };
 
   return (
     <>
       <SemesterForm onSubmit={addSemester}></SemesterForm>
-      <Semester
+      <Semesters
         semesters={semesters}
-        completeSemester={completeSemester}
         removeSemester={removeSemester}
-        editSemesterName={editSemesterName}
-      ></Semester>
+      ></Semesters>
     </>
   );
 };

@@ -1,15 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "@material-ui/core/Button";
-import AddCircleIcon from "@material-ui/icons/AddCircle";
+import TextField from "@material-ui/core/TextField";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+
 function CourseForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
-
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  });
-
   const handleChange = (e) => {
     setInput(e.target.value);
   };
@@ -19,7 +14,7 @@ function CourseForm(props) {
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
-      text: input,
+      name: input,
     });
     setInput("");
   };
@@ -32,12 +27,11 @@ function CourseForm(props) {
             placeholder="Edit your class"
             value={input}
             style={{
-              marginLeft: "100px",
+              marginLeft: "20px",
               outline: "none",
             }}
             onChange={handleChange}
             name="text"
-            ref={inputRef}
             className="course-input edit"
           />
           <Button onClick={handleSubmit} className="course-button edit">
@@ -46,36 +40,46 @@ function CourseForm(props) {
         </>
       ) : (
         <>
-          <input
-            placeholder="New Class"
-            value={input}
-            onChange={handleChange}
-            name="text"
-            style={{
-              marginLeft: "40px",
-              border: "2px solid black",
-              borderRadius: "10px",
-              padding: "10px 20px",
-              marginBottom: "20px",
-              outline: "none",
-            }}
-            className="course-input"
-            ref={inputRef}
-          />
-          <Button onClick={handleSubmit} className="course-button">
-            <AddCircleIcon />
-          </Button>
-          <h5
-            style={{
-              display: "inline-block",
-              border: "2px solid black",
-              borderRadius: "10px",
-              padding: "10px 20px",
-              margin: "10px",
-            }}
-          >
-            Classes
-          </h5>
+          {!props.hideCourseInput ? (
+            <div
+              style={{
+                border: "2px solid red",
+                borderRadius: "10px",
+                marginTop: "5px",
+                display: "inline-block",
+              }}
+            >
+              <TextField
+                id="standard-basic"
+                label="Enter course name"
+                placeholder="New course"
+                value={input}
+                onChange={handleChange}
+                name="text"
+                style={{
+                  border: "2px solid red",
+                  borderRadius: "10px",
+                  marginTop: "5px",
+                  display: "inline-block",
+                }}
+              />
+              <Button
+                onClick={handleSubmit}
+                style={{
+                  marginTop: "-50px",
+                  marginLeft: "175px",
+                  backgroundColor: "transparent",
+                  color: "green",
+                  //to change based on whenever use enters
+                }}
+                disableRipple
+              >
+                <CheckCircleIcon fontSize="small" />
+              </Button>
+            </div>
+          ) : (
+            <></>
+          )}
         </>
       )}
     </form>
