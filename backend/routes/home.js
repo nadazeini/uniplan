@@ -129,7 +129,7 @@ router.put("/add-rating", (req, res) => {
 //Courseplan requests
 
 //add semester (courseplan) request
-router.put("/semesters/:semesterId", (req, res) => {
+router.put("/semesters/:id", (req, res) => {
   const { studentAuth, year, term } = req.body; //studentAuth should be unique to student, will modify after authentication
   if (!studentAuth || !year || !term) {
     return res
@@ -143,16 +143,12 @@ router.put("/semesters/:semesterId", (req, res) => {
       }
 
       //check if semester was added already
-      if (
-        student.courseplan.some(
-          ({ semesterId }) => semesterId == req.params.semesterId
-        )
-      ) {
+      if (student.courseplan.some(({ id }) => id == req.params.id)) {
         return res.status(422).json({ error: "semester already exists" });
       }
 
       const newSemester = {
-        semesterId: req.params.semesterId,
+        id: req.params.id,
         term: term,
         year: year,
       };
@@ -161,7 +157,7 @@ router.put("/semesters/:semesterId", (req, res) => {
       student
         .save()
         .then((updatedStudent) => {
-          res.json({ updatedStudent });
+          res.json(updatedStudent["courseplan"]);
         })
         .catch((err) => {
           console.log(err);

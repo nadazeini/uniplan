@@ -13,7 +13,7 @@ const studentSchema = new mongoose.Schema({
 
   courseplan: [
     {
-      semesterId: Number,
+      id: Number,
       term: String,
       year: Number,
       courses: [courseSchema.Course],
