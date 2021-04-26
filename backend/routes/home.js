@@ -9,6 +9,7 @@ const Course = mongoose.model("Course");
 router.get("/", (req, res) => {
   res.send("Welcome");
 });
+
 router.post("/add-teacher", (req, res) => {
   const { name, rating } = req.body;
   if (!name) {
@@ -34,6 +35,7 @@ router.post("/add-teacher", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
 router.post("/search-teachers", (req, res) => {
   const { name } = req.body;
   Teacher.find({ name: name })
@@ -47,6 +49,7 @@ router.post("/search-teachers", (req, res) => {
 });
 
 //add-class request
+
 router.post("/add-class", (req, res) => {
   const { id, name } = req.body;
   if (!name || !id) {
@@ -103,38 +106,6 @@ router.post("/add-student", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-//add semester (courseplan) request
-router.post("/add-semester", (req, res) => {
-  const { id, year, term, coursesTaken } = req.body;
-
-  if (!year) {
-    return res.status(422).json({ error: "need semester year" });
-  }
-  CoursePlan.findOne({ id: id })
-    .then((existingCoursePlan) => {
-      if (existingCoursePlan) {
-        return res
-          .status(422)
-          .json({ error: "this course plan already exists" });
-      }
-      const coursePlan = new CoursePlan({
-        id,
-        year,
-        term,
-        coursesTaken,
-      });
-      coursePlan
-        .save()
-        .then((course) => {
-          res.json({ message: "course plan added" });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    })
-    .catch((err) => console.log(err));
-});
-
 router.put("/add-rating", (req, res) => {
   const { name, rating } = req.body;
   Teacher.findOne({ name: name }).then((existingTeacher) => {
@@ -154,4 +125,53 @@ router.put("/add-rating", (req, res) => {
   });
   teacher.save();
 });
+
+//Courseplan requests
+
+//add semester (courseplan) request
+router.put("/semesters/:semesterId", (req, res) => {
+  const { studentAuth, year, term } = req.body; //studentAuth should be unique to student, will modify after authentication
+  if (!studentAuth || !year || !term) {
+    return res
+      .status(422)
+      .json({ error: "need student unique id, semester year and term" });
+  }
+  Student.findOne({ name: studentAuth }) //for now... should be id later
+    .then((student) => {
+      if (!student) {
+        return res.status(422).json({ error: "student doesn't exist" });
+      }
+
+      const newSemester = {
+        semesterId: req.params.semesterId,
+        term: term,
+        year: year,
+      };
+
+      //check if semester was added already
+      if (
+        student.courseplan.some(
+          ({ semesterId }) => semesterId == req.params.semesterId
+        )
+      ) {
+        return res.status(422).json({ error: "semester already exists" });
+      }
+
+      const newCourseplan = [];
+      newCourseplan.push(newSemester);
+
+      Student.updateOne({ courseplan: newCourseplan }, (err, result) => {
+        if (err) {
+          res.send(err);
+        } else {
+          res.json({
+            message: "semester added",
+            student: res.name,
+          });
+        }
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
 module.exports = router;
