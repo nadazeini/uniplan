@@ -32,6 +32,7 @@ router.post("/add-teacher", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
 router.post("/search-teachers", (req, res) => {
   const { name } = req.body;
   Teacher.find({ name: name })
@@ -154,5 +155,19 @@ router.post("/sign-up", (req, res) => {
         });
     })
     .catch((err) => console.log(err));
+});
+
+router.get("/log-in", (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(422).json({ error: "need email" });
+  }
+  Users.findOne({ email: email })
+    .then((user) => {
+      res.json({ user });
+    })
+    .catch((err) => {
+      res.json({ error: err });
+    });
 });
 module.exports = router;

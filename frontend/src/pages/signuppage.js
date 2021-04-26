@@ -1,7 +1,7 @@
 import "../styles.css";
 import logo6 from "../logo6.png";
-import React, { useState, Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState} from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 
 
 export default function SignUpPage() {
