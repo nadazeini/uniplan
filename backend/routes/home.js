@@ -1,8 +1,9 @@
 const express = require("express");
+const { Db } = require("mongodb");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
-const Student = mongoose.model("Student");
+const Student = mongoose.model("Students");
 const CoursePlan = mongoose.model("CoursePlan");
 const Course = mongoose.model("Course");
 
@@ -154,4 +155,50 @@ router.put("/add-rating", (req, res) => {
   });
   teacher.save();
 });
+
+router.put("/add-review", (req, res) => {
+  // Note: Assumre the student is alwasy logged in and it's valid
+  const {teacherName, review} = req.body;
+  
+  // using a temporary variable to hold placement of student's name.
+  // We need to fix this after implementing login, and use session id linked with student id to locate student
+  const studentName = "student1";
+
+  // check if the teacher exist
+  Teacher.findOne({ name: teacherName })
+  .then((existingTeacher) => {
+    if (!existingTeacher) {
+      return res
+      .status(422).json({ error: "this teach doesn't exist in our system" });
+    }
+  })
+
+  // check if student already left review for this teacher
+  Student.findOne({$and: [{name : studentName}, {reviewsGiven: {$elemMatch: {teacher: teacherName}}}]})
+  .then((existingReview) => {
+    if(existingReview) {
+      return res
+        .status(422)
+        .json({ error: "You already left review for this teacher" });
+    } else {
+      // get here, review doesn't exist, we add it to the db
+      Student.updateOne(
+        {name: studentName}, {$push: {reviewsGiven: {teacher: teacherName, review: review}}}
+      ).catch((err) => {
+        console.log('Error: ' + err);
+      })
+
+      Teacher.updateOne(
+        {name: teacherName}, {$push: {reviews: review}}
+      ).catch((err) => {
+        console.log('Error: ' + err);
+      })
+    }
+  }) 
+  .catch((err) => console.log(err));
+});
 module.exports = router;
+
+
+  
+
