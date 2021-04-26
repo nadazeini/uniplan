@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
+const signup = mongoose.model("Users")
 
 router.get("/", (req, res) => {
   res.send("Welcome");
@@ -121,4 +122,19 @@ router.put("/add-rating", (req, res) => {
 
   
 });
+
+router.post("/signup", (req,res)=>{
+  const signedUpUser = new signup({
+    name:request.body.name,
+    email:request.body.email,
+    password:request.body.password
+  })
+  signedUpUser.save()
+  .then(data => {
+    response.json(data)
+  })
+  .catch(error => {
+    response.json(error)
+  })
+})
 module.exports = router;

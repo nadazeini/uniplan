@@ -17,6 +17,11 @@ return(
       <div className="wrap">
         <h3>Create an Account</h3>
 
+        <input type = "String"
+          placeholder="Name"
+        />
+        <br></br> <br></br>
+
         <input type = "email"
           placeholder="Email"
         />
