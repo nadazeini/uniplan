@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SemesterForm from "./SemesterForm";
 import Semesters from "./Semesters";
-import CourseList from "./CourseList";
 
 const SemesterList = () => {
   const [semesters, setSemesters] = useState([]);
+  const studentId = "Fake"; //to modify after authentication is done
+
+  useEffect(() => {
+    fetch("http://localhost:5000/semesters/" + studentId)
+      .then((data) => data.json())
+      .then((res) => {
+        let term_order = ["Fall", "Winter", "Spring", "Summer"];
+        res.sort((semester1, semester2) =>
+          semester1.year > semester2.year
+            ? 1
+            : semester1.year === semester2.year
+            ? term_order.indexOf(semester1.term) -
+              term_order.indexOf(semester2.term)
+            : -1
+        );
+        setSemesters(res);
+      });
+  }, []);
 
   const addSemester = (semester) => {
     if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
