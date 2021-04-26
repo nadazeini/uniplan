@@ -14,23 +14,35 @@ const updateTeacher = (input) => {
   );
 };
 
+const updateReview = (input) => {
+  const requestOptions = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input),
+  };
+  fetch("http://localhost:5000/add-review/", requestOptions)
+    .then((res) =>
+      res.json()
+    );
+};
+
 class EditReview extends Component {
   constructor(props) {
     super(props);
     this.state = {
       teacherName: "",
-      difficulty: 1,
-      teachingAbility: 4,
-      lectureClarity: 4,
-      examDifficulty: 4,
-      homeworkLoad: 4,
-      reviews: "",
+      difficulty: 3,
+      teachingAbility: 3,
+      lectureClarity: 3,
+      examDifficulty: 3,
+      homeworkLoad: 3,
+      review: "",
     };
   }
 
-  handleReviewsChange = (event) => {
+  handleReviewChange = (event) => {
     this.setState({
-      reviews: event.target.value,
+      review: event.target.value,
     });
   };
 
@@ -71,19 +83,34 @@ class EditReview extends Component {
   }
 
   handleSubmit = (event) => {
+    var content = {
+      "teacherName": this.state.teacherName,
+      "difficulty": this.state.difficulty,
+      "teachingAbility": this.state.teachingAbility,
+      "lectureClarity": this.state.lectureClarity,
+      "examDifficulty": this.state.examDifficulty,
+      "homeworkLoad": this.state.homeworkLoad,
+      "teacherName": this.state.teacherName,
+      "review": this.state.review,
+    }
+
+    updateReview(content);
+
     alert(`${"Teacher Name: " + this.state.teacherName}
                 ${"\nDifficulty: " + this.state.difficulty} 
                 ${"\nTeaching Ability: " + this.state.teachingAbility}
                 ${"\nLecture Clarity: " + this.state.lectureClarity}
                 ${"\nExam Difficulty: " + this.state.examDifficulty}
                 ${"\nHomework Load: " + this.state.homeworkLoad}
-                ${"\nReview: " + this.state.reviews}`);
+                ${"\nReview: " + this.state.review}`);
+    
+    
     event.preventDefault();
   };
 
   render() {
     const {
-      reviews,
+      review,
       difficulty,
       teachingAbility,
       lectureClarity,
@@ -177,11 +204,11 @@ class EditReview extends Component {
             </div>
           </div>
           <div class="">
-            <label class="form-label star-size">Reviews</label>
+            <label class="form-label star-size">Review</label>
             <textarea
               class="form-control"
-              value={reviews}
-              onChange={this.handleReviewsChange}
+              value={review}
+              onChange={this.handleReviewChange}
             ></textarea>
           </div>
           <br />
