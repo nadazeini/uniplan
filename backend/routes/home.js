@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
-const signup = mongoose.model("Users")
+const Users = mongoose.model("Users")
 
 router.get("/", (req, res) => {
   res.send("Welcome");
@@ -123,18 +123,36 @@ router.put("/add-rating", (req, res) => {
   
 });
 
-router.post("/signup", (req,res)=>{
-  const signedUpUser = new signup({
-    name:request.body.name,
-    email:request.body.email,
-    password:request.body.password
-  })
-  signedUpUser.save()
-  .then(data => {
-    response.json(data)
-  })
-  .catch(error => {
-    response.json(error)
-  })
-})
+router.post("/sign-up", (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name) {
+    return res.status(422).json({ error: "need name" });
+  }
+  if (!email) {
+    return res.status(422).json({ error: "need email" });
+  }
+  if (!password) {
+    return res.status(422).json({ error: "need password" });
+  }
+  Users.findOne({ name: name, email: email })
+    .then((existingUser) => {
+      if (existingUser) {
+        return res.status(422).json({ error: "already exists" });
+      }
+      const user = new Users({
+        name,
+        email,
+        password
+      });
+      user
+        .save()
+        .then((user) => {
+          res.json({ message: "user added" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
+});
 module.exports = router;
