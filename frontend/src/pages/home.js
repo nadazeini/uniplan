@@ -1,6 +1,5 @@
 import "../styles.css";
 import logo6 from "../logo6.png";
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
