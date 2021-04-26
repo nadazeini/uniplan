@@ -10,7 +10,6 @@ const SemesterList = () => {
     if ((!semester.term && !semester.year) || /^\s*$/.test(semester.term)) {
       return;
     }
-
     const found = semesters.some(
       (value) =>
         value["year"] === semester.year && value["term"] === semester.term
@@ -20,21 +19,46 @@ const SemesterList = () => {
       console.log("already added");
       return;
     }
-    semesters.push(semester);
-    const newSemesters = [...semesters];
+    // semesters.push(semester);
+    // const newSemesters = [...semesters];
 
     //sort by year, term if equal
-    let term_order = ["Fall", "Winter", "Spring", "Summer"];
-    newSemesters.sort((semester1, semester2) =>
-      semester1.year > semester2.year
-        ? 1
-        : semester1.year === semester2.year
-        ? term_order.indexOf(semester1.term) -
-          term_order.indexOf(semester2.term)
-        : -1
-    );
+    // let term_order = ["Fall", "Winter", "Spring", "Summer"];
+    // newSemesters.sort((semester1, semester2) =>
+    //   semester1.year > semester2.year
+    //     ? 1
+    //     : semester1.year === semester2.year
+    //     ? term_order.indexOf(semester1.term) -
+    //       term_order.indexOf(semester2.term)
+    //     : -1
+    // );
+
+    //send put request
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentAuth: "Fake", //to change to id of logged in user
+        year: semester.year,
+        term: semester.term,
+      }),
+    };
+    fetch("http://localhost:5000/semesters/" + semester.id, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        let term_order = ["Fall", "Winter", "Spring", "Summer"];
+        res.sort((semester1, semester2) =>
+          semester1.year > semester2.year
+            ? 1
+            : semester1.year === semester2.year
+            ? term_order.indexOf(semester1.term) -
+              term_order.indexOf(semester2.term)
+            : -1
+        );
+        setSemesters(res);
+      });
     //apply changes
-    setSemesters(newSemesters);
+    // setSemesters(newSemesters);
   };
 
   const removeSemester = (id) => {
