@@ -142,12 +142,6 @@ router.put("/semesters/:semesterId", (req, res) => {
         return res.status(422).json({ error: "student doesn't exist" });
       }
 
-      const newSemester = {
-        semesterId: req.params.semesterId,
-        term: term,
-        year: year,
-      };
-
       //check if semester was added already
       if (
         student.courseplan.some(
@@ -157,19 +151,21 @@ router.put("/semesters/:semesterId", (req, res) => {
         return res.status(422).json({ error: "semester already exists" });
       }
 
-      const newCourseplan = [];
-      newCourseplan.push(newSemester);
+      const newSemester = {
+        semesterId: req.params.semesterId,
+        term: term,
+        year: year,
+      };
 
-      Student.updateOne({ courseplan: newCourseplan }, (err, result) => {
-        if (err) {
-          res.send(err);
-        } else {
-          res.json({
-            message: "semester added",
-            student: res.name,
-          });
-        }
-      });
+      student.courseplan.push(newSemester);
+      student
+        .save()
+        .then((updatedStudent) => {
+          res.json({ updatedStudent });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     })
     .catch((err) => console.log(err));
 });
