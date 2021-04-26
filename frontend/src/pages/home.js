@@ -2,6 +2,7 @@ import "../styles.css";
 import logo6 from "../logo6.png";
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -44,8 +45,8 @@ export default function Home() {
           <div className="nav">
             <img alt="" src={logo6} width="10%" />
             <div className="buttons">
-              <button className="logIn">Login</button>
-              <button className="signUp">Sign Up</button>
+              <Link to = "/login"><button className="logIn">Login</button></Link>
+              <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
             </div>
           </div>
 
@@ -107,8 +108,8 @@ export default function Home() {
           <div className="nav">
             <img alt="" src={logo6} width="10%" />
             <div className="buttons">
-              <button className="logIn">Login</button>
-              <button className="signUp">Sign Up</button>
+              <Link to = "/login"><button className="logIn">Login</button></Link>
+              <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
             </div>
           </div>
 
@@ -140,8 +141,8 @@ export default function Home() {
         <div className="nav">
           <img alt="" src={logo6} width="10%" />
           <div className="buttons">
-            <button className="logIn">Login</button>
-            <button className="signUp">Sign Up</button>
+            <Link to = "/login"><button className="logIn">Login</button></Link>
+            <Link to = "/signup"><button className="signUp">Sign Up</button></Link>
           </div>
         </div>
 

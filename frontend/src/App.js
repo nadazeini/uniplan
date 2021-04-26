@@ -6,16 +6,17 @@ import Home from "./pages/home";
 import EditReview from "./pages/editReview";
 import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
+import LoginPage from "./pages/loginpage"
+import SignUpPage from "./pages/signuppage"
 import { CSSTransition } from 'react-transition-group';
-
 
 const routes = [
   { path: '/', name: 'Home', Component: Home },
   { path: '/review/edit', name: 'Edit Review', Component: EditReview },
   { path: '/search-teachers', name: 'Display Teacher Result', Component:  DisplayTeacherResult},
   { path: '/transcript', name: 'Transcript', Component: TranscriptForm },
-  { path: '/login', name: 'Log In', Component: TranscriptForm },
-  { path: '/signup', name: 'Sign Up', Component: TranscriptForm },
+  { path: '/login', name: 'Log In', Component: LoginPage },
+  { path: '/signup', name: 'Sign Up', Component: SignUpPage },
 ];
 
 export default function App() {

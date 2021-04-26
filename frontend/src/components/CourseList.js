@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import CourseForm from "./CourseForm";
-import Course from "./Course";
+import Courses from "./Courses";
 
-function CourseList() {
+function CourseList(props) {
   const [courses, setCourses] = useState([]);
 
   const addClass = (course) => {
-    if (!course.text || /^\s*$/.test(course.text)) {
+    if (!course.name || /^\s*$/.test(course.name)) {
       return;
     }
-
-    const newCourses = [course, ...courses];
-
+    courses.push(course);
+    const newCourses = [...courses];
     setCourses(newCourses);
-    console.log(...courses);
+    props.semesters.courses = courses;
+    props.setSemesters(props.semesters);
+
+    //
+    // const newSemesters = [props.semester, ...props.semesters];
+    // props.setSemesters(newSemesters);
   };
 
   const updateCourse = (courseId, newValue) => {
-    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+    if (!newValue.name || /^\s*$/.test(newValue.name)) {
       return;
     }
 
@@ -32,22 +36,15 @@ function CourseList() {
     setCourses(removedArr);
   };
 
-  const completeCourse = (id) => {
-    let updatedCourses = courses.map((course) => {
-      if (course.id === id) {
-        course.isComplete = !course.isComplete;
-      }
-      return course;
-    });
-    setCourses(updatedCourses);
-  };
-
   return (
     <>
-      <CourseForm onSubmit={addClass} />
-      <Course
+      <CourseForm
+        semester={props.semester}
+        onSubmit={addClass}
+        hideCourseInput={props.hideCourseInput}
+      />
+      <Courses
         courses={courses}
-        completeCourse={completeCourse}
         removeCourse={removeCourse}
         updateCourse={updateCourse}
       />

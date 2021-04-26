@@ -1,18 +1,22 @@
 const mongoose = require("mongoose");
 
 const courseSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+  },
   name: {
     type: String,
     required: true,
   },
   department: {
     type: String,
-    required: true,
+    required: false,
   },
   number: Number,
   courseDescription: String,
   teachers: [String],
   semestersOffered: [{ term: String, year: Number }],
+  //will prob not use below for now
   reviewsGiven: [{ teacher: String, review: String }],
   ratingsGiven: [{ teacher: String, rating: Number }],
 });
