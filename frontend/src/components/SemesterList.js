@@ -62,8 +62,20 @@ const SemesterList = () => {
   };
 
   const removeSemester = (id) => {
-    const removedArr = [...semesters].filter((semester) => semester.id !== id);
-    setSemesters(removedArr);
+    // const removedArr = [...semesters].filter((semester) => semester.id !== id);
+    // setSemesters(removedArr);
+    const requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentAuth: "Fake", //to change to id of logged in user
+      }),
+    };
+    fetch("http://localhost:5000/semesters/" + id, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        setSemesters(res);
+      });
   };
 
   return (
