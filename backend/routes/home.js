@@ -127,6 +127,26 @@ router.put("/add-rating", (req, res) => {
 });
 
 //Courseplan requests
+//get all semesters (include term, year and courses )
+router.get("/semesters/:studentid", (req, res) => {
+  Student.findOne({ name: req.params.studentid })
+    .then((student) => {
+      if (!student) {
+        return res
+          .status("422")
+          .json({ error: "student not logged in or doesn't exists" });
+      }
+      res
+        .send(student.courseplan)
+        .then((courseplan) => {
+          res.json(courseplan);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
+});
 
 //add semester (courseplan) request
 router.put("/semesters/:id", (req, res) => {
