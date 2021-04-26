@@ -136,14 +136,7 @@ router.get("/semesters/:studentid", (req, res) => {
           .status("422")
           .json({ error: "student not logged in or doesn't exists" });
       }
-      res
-        .send(student.courseplan)
-        .then((courseplan) => {
-          res.json(courseplan);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      res.json(student["courseplan"]);
     })
     .catch((err) => console.log(err));
 });
