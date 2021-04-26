@@ -19,4 +19,4 @@ const studentSchema = new mongoose.Schema({
   ratingsGiven: [{ teacher: String, review: String }],
 });
 
-mongoose.model("Student", studentSchema);
+mongoose.model("Students", studentSchema);

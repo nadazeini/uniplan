@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import EditReview from "./pages/editReview";
+import LoginPage from "./pages/loginpage";
 import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
 import LoginPage from "./pages/loginpage"
