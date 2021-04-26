@@ -166,4 +166,21 @@ router.put("/semesters/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+//Remove a semester from courseplan
+router.delete("/semesters/:id", (req, res) => {
+  const { studentAuth } = req.body; //studentAuth should be unique to student, will modify after authentication
+  if (!studentAuth) {
+    return res.status(422).json({ error: "need student id" });
+  }
+  Student.findOneAndUpdate(
+    { name: studentAuth },
+    { $pull: { courseplan: { id: req.params.id } } },
+    { new: true }
+  )
+    .exec()
+    .then((response) => {
+      res.json(response["courseplan"]);
+    });
+});
+
 module.exports = router;
