@@ -48,18 +48,18 @@ router.post("/search-teachers", (req, res) => {
 
 //add-class request
 router.post("/add-class", (req, res) => {
-  const { name, department } = req.body;
-  if (!name) {
-    return res.status(422).json({ error: "need course name" });
+  const { id, name } = req.body;
+  if (!name || !id) {
+    return res.status(422).json({ error: "need course name and id" });
   }
-  Course.findOne({ name: name, department: department })
+  Course.findOne({ id: id, name: name })
     .then((existingCourse) => {
       if (existingCourse) {
         return res.status(422).json({ error: "this course already exists" });
       }
       const course = new Course({
+        id,
         name,
-        department,
       });
       course
         .save()
@@ -73,13 +73,44 @@ router.post("/add-class", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.post("/add-student", (req, res) => {
+  const { name, department, courseplan, reviewsGiven, ratingsGiven } = req.body;
+  if (!name) {
+    return res.status(422).json({ error: "need course name" });
+  }
+  Student.findOne({
+    //need to add id here or something unique
+    name: name,
+    department: department,
+  })
+    .then((existingStudent) => {
+      if (existingStudent) {
+        return res.status(422).json({ error: "student exists" });
+      }
+      const student = new Student({
+        name,
+        department,
+      });
+      student
+        .save()
+        .then((student) => {
+          res.json({ message: "new student added" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
+});
+
 //add semester (courseplan) request
 router.post("/add-semester", (req, res) => {
-  const { year, term } = req.body;
+  const { id, year, term, coursesTaken } = req.body;
+
   if (!year) {
     return res.status(422).json({ error: "need semester year" });
   }
-  CoursePlan.findOne({ year: year, term: term })
+  CoursePlan.findOne({ id: id })
     .then((existingCoursePlan) => {
       if (existingCoursePlan) {
         return res
@@ -87,8 +118,10 @@ router.post("/add-semester", (req, res) => {
           .json({ error: "this course plan already exists" });
       }
       const coursePlan = new CoursePlan({
+        id,
         year,
         term,
+        coursesTaken,
       });
       coursePlan
         .save()
