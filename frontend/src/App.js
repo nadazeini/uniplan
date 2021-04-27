@@ -8,6 +8,16 @@ import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
 import LoginPage from "./pages/loginpage"
 import SignUpPage from "./pages/signuppage"
+import { CSSTransition } from 'react-transition-group';
+
+const routes = [
+  { path: '/', name: 'Home', Component: Home },
+  { path: '/review/edit', name: 'Edit Review', Component: EditReview },
+  { path: '/search-teachers', name: 'Display Teacher Result', Component:  DisplayTeacherResult},
+  { path: '/transcript', name: 'Transcript', Component: TranscriptForm },
+  { path: '/login', name: 'Log In', Component: LoginPage },
+  { path: '/signup', name: 'Sign Up', Component: SignUpPage },
+];
 
 export default function App() {
   return (
@@ -15,7 +25,7 @@ export default function App() {
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            Uniplan
+            <Link to="/">Uniplan</Link>
           </a>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -26,12 +36,12 @@ export default function App() {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <Link to="/review/edit">Edit Review</Link>
+                  <Link to="/review/edit">Submit a Review</Link>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                  <Link to="/search-teachers">Display Teacher Result</Link>
+                  <Link to="/search-teachers">Search for a Professor</Link>
                 </a>
               </li>
               <li class="nav-item">
@@ -44,97 +54,24 @@ export default function App() {
         </div>
       </nav>
       <div>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/login">
-            <LoginPage />
+      {routes.map(({ path, Component }) => (
+          <Route key={path} exact path={path}>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={300}
+                classNames="page"
+                unmountOnExit
+              >
+                <div className="page">
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
           </Route>
-          <Route path="/signup">
-            <SignUpPage />
-          </Route>
-          <Route path="/review/edit">
-            <EditReview />
-          </Route>
-          <Route path="/search-teachers">
-            <DisplayTeacherResult />
-          </Route>
-          <Route path="/transcript">
-            <TranscriptForm />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        ))}
       </div>
     </Router>
   );
 
-  const [search, setSearch] = useState("");
-  const [results, setResults] = useState({});
-  const [searched, setSearched] = useState(false);
-
-  const example = ["Ex1", "Ex2", "Ex3", "Ex4", "Ex5"];
-
-  // .then(res => console.log(res.teacher))
-
-  // {results.map((entry) => (
-  //   <div>{entry}</div>
-  // ))}
-
-  const getHome = () => {
-    fetch("http://localhost:5000/")
-      .then((res) => res.text())
-      .then((res) => setResults([res]));
-  };
-
-  const getResults = (input) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: input }),
-    };
-
-    fetch("http://localhost:5000/search-teachers/", requestOptions)
-      .then((res) => res.json())
-
-      .then((res) => setResults(res.teacher[0]));
-
-    setSearched(true);
-  };
-
-  return (
-    <div className="App">
-      <div className="nav">
-        <img alt="" src={logo6} width="10%" />
-        <div className="buttons">
-          <button className="logIn">Login</button>
-          <button className="signUp">Sign Up</button>
-        </div>
-      </div>
-
-      <div className="search">
-        <img alt="" src={logo6} width="30%" />
-        <h3>Input a professor's name to search!</h3>
-
-        <input
-          placeholder="Your Professor"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          onClick={() => {
-            console.log(search);
-            getResults(search);
-          }}
-        >
-          Search
-        </button>
-      </div>
-
-      <div className="results">
-        {searched ? "teacher: " + results.name : ""}
-      </div>
-      <div>{searched ? "rating: " + results.rating : ""}</div>
-    </div>
-  );
 }
