@@ -157,17 +157,20 @@ router.post("/sign-up", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/log-in", (req, res) => {
-  const { email } = req.body;
+router.post("/log-in", (req, res) => {
+  const { email, password } = req.body;
   if (!email) {
     return res.status(422).json({ error: "need email" });
   }
-  Users.findOne({ email: email })
+  if (!password) {
+    return res.status(422).json({ error: "need password" });
+  }
+  Users.findOne({ email: email, password: password })
     .then((user) => {
       res.json({ user });
     })
     .catch((err) => {
-      res.json({ error: err });
+      console.log(err)
     });
 });
 module.exports = router;
