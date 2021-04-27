@@ -28,10 +28,8 @@ export const Semester = ({ semester, removeSemester }) => {
     fetch("http://localhost:5000/course/" + semester.id, requestOptions)
       .then((res) => res.json())
       .then((res) => {
-        semester.courses.push(res);
-        setCourses(semester.courses);
+        setCourses(semester.courses.push(res));
       });
-    // semester.courses.push(course);
   };
 
   const [courseInput, setCourseInput] = useState("");
