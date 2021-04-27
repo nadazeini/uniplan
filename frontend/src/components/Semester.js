@@ -1,83 +1,134 @@
-import React, { useState } from "react";
-import SemesterForm from "./SemesterForm";
+import React, { useState, useEffect } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
-import ClassCourse from "./CourseList";
-const Semester = ({
-  semesters,
-  completeSemester,
-  removeSemester,
-  editSemesterName,
-}) => {
-  const [edit, setEdit] = useState({
-    id: null,
-    value: "",
-  });
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import { TermAndYear } from "./TermAndYear";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import Courses from "./Courses";
 
-  const submitUpdate = (value) => {
-    editSemesterName(edit.id, value);
-    setEdit({
-      id: null,
-      value: "",
-    });
+export const Semester = ({ semester, removeSemester }) => {
+  const [hideCourseInput, setHideCourseInput] = useState(true);
+  const [courses, setCourses] = useState([]);
+  //handle adding courses here, since using textfield here
+  const addCourse = (course) => {
+    if (!course.name || /^\s*$/.test(course.name)) {
+      return;
+    }
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentAuth: "Fake", //to change to id of logged in user
+        id: course.id,
+        name: course.name,
+      }),
+    };
+
+    fetch("http://localhost:5000/course/" + semester.id, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        setCourses(semester.courses.push(res));
+      });
   };
 
-  if (edit.id) {
-    return <SemesterForm edit={edit} onSubmit={submitUpdate} />;
-  }
+  const [courseInput, setCourseInput] = useState("");
 
-  return semesters.map((semester, index) => (
+  const handleCourseChange = (e) => {
+    setCourseInput(e.target.value);
+  };
+  const handleCourseSubmit = (e) => {
+    e.preventDefault();
+    setHideCourseInput(true);
+    addCourse({
+      id: Math.floor(Math.random() * 10000),
+      name: courseInput,
+    });
+    setCourseInput("");
+  };
+
+  return (
     <div
       style={{
-        marginLeft: "40px",
+        marginLeft: "20px",
         width: "30%",
+        display: "inline-block",
         border: "none",
         border: "2px solid black",
-        borderRadius: "10px",
         padding: "5px",
-        marginTop: "5px",
+        verticalAlign: "top",
+        marginTop: "25px",
       }}
       className={semester.isComplete ? "semester-row complete" : "semester-row"}
-      key={index}
     >
-      <div
-        style={{
-          display: "inline-block",
-          border: "2px solid black",
-          borderRadius: "10px",
-          padding: "10px 20px",
-          margin: "10px",
-        }}
-        key={semester.id}
-        onClick={() => completeSemester(semester.id)}
-      >
-        {semester.text}
-      </div>
+      <TermAndYear semester={semester} />
       <div
         className="icons"
         style={{
-          textAlign: "right",
-          display: "inline-block",
           float: "right",
-          margin: "10px",
-          padding: "10px 20px",
+          marginTop: "-25px",
         }}
       >
-        <EditIcon
-          onClick={() => setEdit({ id: semester.id, value: semester.text })}
-          className="edit-icon"
-          style={{ cursor: "pointer", marginRight: "15px" }}
+        <AddCircleIcon
+          style={{
+            cursor: "pointer",
+            color: "#3574c3",
+            marginRight: "10px",
+          }}
           fontSize="small"
+          onClick={() => {
+            setHideCourseInput(false);
+          }}
         />
         <DeleteIcon
-          style={{ cursor: "pointer" }}
+          style={{
+            cursor: "pointer",
+            color: "red",
+          }}
           fontSize="small"
           onClick={() => removeSemester(semester.id)}
         />
       </div>
-      <ClassCourse />
-    </div>
-  ));
-};
+      {!hideCourseInput ? (
+        <>
+          <TextField
+            id="standard-basic"
+            label="Enter course name"
+            placeholder="New course"
+            value={courseInput}
+            onChange={handleCourseChange}
+            name="text"
+            style={{
+              float: "left",
+              marginLeft: "20px",
+              marginTop: "20px",
+            }}
+            className="course-input"
+            onKeyDownCapture={(e) => {
+              if (e.key === "Enter") {
+                handleCourseSubmit(e);
+              }
+            }}
+          />
+          <Button
+            onClick={handleCourseSubmit}
+            style={{
+              marginTop: "-50px",
+              marginLeft: "200px",
+              backgroundColor: "transparent",
+              color: "green",
+              //to change based on whenever use enters
+            }}
+            disableRipple
+          >
+            <CheckCircleIcon fontSize="small" />
+          </Button>
+        </>
+      ) : (
+        <div></div>
+      )}
 
-export default Semester;
+      <Courses semesterCourses={courses} semester={semester} />
+    </div>
+  );
+};

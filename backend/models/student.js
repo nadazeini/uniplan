@@ -1,21 +1,26 @@
 const mongoose = require("mongoose");
-
+const courseSchema = require("./course");
 const studentSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
 
-  department:
-  {
+  department: {
     type: String,
     required: true,
   },
 
-  courseplan: [{{term:String, year: Number},
-                [{course: String, teacher: String}]}],
-  reviewsGiven: [{teacher: String, review: String}],
-  ratingsGiven:[{teacher: String, review: String}]
+  courseplan: [
+    {
+      id: Number,
+      term: String,
+      year: Number,
+      courses: [courseSchema.Course],
+    },
+  ],
+  reviewsGiven: [{ teacher: String, review: String }],
+  ratingsGiven: [{ teacher: String, review: String }],
 });
 
-mongoose.model("Student", studentSchema);
+mongoose.model("Students", studentSchema);
