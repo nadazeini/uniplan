@@ -251,10 +251,13 @@ router.delete("/course/:semesterid/:courseid", (req, res) => {
     return res.status(422).json({ error: "need student id" });
   }
   Student.findOneAndUpdate(
-    { name: studentAuth },
+    {
+      name: studentAuth,
+      "courseplan.id": req.params.semesterid,
+    },
     {
       $pull: {
-        "courseplan.1.courses": { id: req.params.courseid },
+        "courseplan.$.courses": { id: req.params.courseid },
       },
     },
     { new: true }
@@ -285,17 +288,20 @@ router.put("/course/:semesterid/:courseid", (req, res) => {
       if (!student) {
         return res.status(422).json({ error: "student doesn't exist" });
       }
-      //check if course was added already
       if (!student.courseplan.find(({ id }) => id == req.params.semesterid)) {
         return res.status(422).json({ error: "semester doesn't exist" });
       }
+
       const foundCourse = student.courseplan
         .find(({ id }) => id == req.params.semesterid)
         ["courses"].find(({ id }) => id == req.params.courseid);
+
       if (!foundCourse) {
         return res.status(422).json({ error: "course doesn't exist" });
       }
+
       foundCourse.name = name;
+
       student
         .save()
         .then((updatedStudent) => {
