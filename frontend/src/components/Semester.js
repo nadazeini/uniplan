@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -9,13 +9,29 @@ import Courses from "./Courses";
 
 export const Semester = ({ semester, removeSemester }) => {
   const [hideCourseInput, setHideCourseInput] = useState(true);
-
+  const [courses, setCourses] = useState([]);
   //handle adding courses here, since using textfield here
   const addCourse = (course) => {
     if (!course.name || /^\s*$/.test(course.name)) {
       return;
     }
-    semester.courses.push(course);
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentAuth: "Fake", //to change to id of logged in user
+        id: course.id,
+        name: course.name,
+      }),
+    };
+
+    fetch("http://localhost:5000/course/" + semester.id, requestOptions)
+      .then((res) => res.json())
+      .then((res) => {
+        semester.courses.push(res);
+        setCourses(semester.courses);
+      });
+    // semester.courses.push(course);
   };
 
   const [courseInput, setCourseInput] = useState("");
@@ -114,7 +130,7 @@ export const Semester = ({ semester, removeSemester }) => {
         <div></div>
       )}
 
-      <Courses semesterCourses={semester.courses} semester={semester} />
+      <Courses semesterCourses={courses} semester={semester} />
     </div>
   );
 };
