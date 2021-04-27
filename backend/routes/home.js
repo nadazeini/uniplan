@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
-const Student = mongoose.model("Student");
+const Student = mongoose.model("Students");
 const CoursePlan = mongoose.model("CoursePlan");
 const Course = mongoose.model("Course");
 
@@ -194,6 +194,55 @@ router.delete("/semesters/:id", (req, res) => {
     .then((response) => {
       res.json(response["courseplan"]);
     });
+});
+
+//Add a course to a semester
+router.put("/course/:id", (req, res) => {
+  const { studentAuth, id, name } = req.body; //studentAuth should be unique to student, will modify after authentication
+  if (!studentAuth) {
+    return res
+      .status(404)
+      .json({ error: "need student unique id, semester year and term" });
+  }
+  Student.findOne({ name: studentAuth }) //for now... should be id later
+    .then((student) => {
+      if (!student) {
+        return res.status(422).json({ error: "student doesn't exist" });
+      }
+      //check if course was added already
+      if (!student.courseplan.find(({ id }) => id == req.params.id)) {
+        return res.status(422).json({ error: "semester doesn't exist" });
+      }
+      if (
+        student.courseplan
+          .find(({ id }) => id == req.params.id)
+          ["courses"].find(({ id }) => id == req.body.id)
+      ) {
+        return res.status(422).json({ error: "course already added" });
+      }
+      const newCourse = {
+        id: id,
+        name: name,
+      };
+
+      student.courseplan
+        .find(({ id }) => id == req.params.id)
+        ["courses"].push(newCourse);
+
+      student
+        .save()
+        .then((updatedStudent) => {
+          res.json(
+            updatedStudent["courseplan"].find(({ id }) => id == req.params.id)[
+              "courses"
+            ]
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
