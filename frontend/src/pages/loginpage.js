@@ -26,7 +26,7 @@ export default function LoginPage() {
 
   if(loggedIn){
     return(
-      document.location.href = "home.js"
+      document.location.href = "/"
       );
   }
   else{
