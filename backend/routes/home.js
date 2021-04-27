@@ -3,6 +3,7 @@ const { Db } = require("mongodb");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Teacher = mongoose.model("Teacher");
+const Users = mongoose.model("Users")
 const Student = mongoose.model("Students");
 const CoursePlan = mongoose.model("CoursePlan");
 const Course = mongoose.model("Course");
@@ -321,6 +322,37 @@ router.put("/course/:semesterid/:courseid", (req, res) => {
     });
 });
 
+router.post("/sign-up", (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name) {
+    return res.status(422).json({ error: "need name" });
+  }
+  if (!email) {
+    return res.status(422).json({ error: "need email" });
+  }
+  if (!password) {
+    return res.status(422).json({ error: "need password" });
+  }
+  Users.findOne({ name: name, email: email }).then((existingUser) => {
+    if (existingUser) {
+      return res.status(422).json({ error: "already exists" });
+    }
+    const user = new Users({
+      name,
+      email,
+      password,
+    });
+    user
+      .save()
+      .then((user) => {
+        res.json({ message: "user added" });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+});
+
 router.put("/add-review", (req, res) => {
   // Note: Assumre the student is alwasy logged in and it's valid
   const { teacherName, review } = req.body;
@@ -368,6 +400,23 @@ router.put("/add-review", (req, res) => {
       }
     })
     .catch((err) => console.log(err));
+});
+
+router.post("/log-in", (req, res) => {
+  const { email, password } = req.body;
+  if (!email) {
+    return res.status(422).json({ error: "need email" });
+  }
+  if (!password) {
+    return res.status(422).json({ error: "need password" });
+  }
+  Users.findOne({ email: email, password: password })
+    .then((user) => {
+      res.json({ user });
+    })
+    .catch((err) => {
+      console.log(err)
+    });
 });
 
 module.exports = router;
