@@ -273,6 +273,36 @@ router.delete("/course/:semesterid/:courseid", (req, res) => {
     });
 });
 
+//Update a course of a semester (change name)
+
+router.put("/course/:semesterid/:courseid", (req, res) => {
+  const { studentAuth, name } = req.body; //studentAuth should be unique to student, will modify after authentication
+  if (!studentAuth) {
+    return res.status(422).json({ error: "need student id" });
+  }
+  Student.findOneAndUpdate(
+    { name: studentAuth, "courseplan.0.courses.id": req.params.courseid },
+    {
+      $set: {
+        "courseplan.0.courses.$.name": name,
+      },
+    },
+    { new: true }
+  )
+    .exec()
+    .then((response) => {
+      res.json(
+        response["courseplan"].find(({ id }) => id == req.params.semesterid)[
+          "courses"
+        ]
+      );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
+});
+
 router.put("/add-review", (req, res) => {
   // Note: Assumre the student is alwasy logged in and it's valid
   const { teacherName, review } = req.body;
