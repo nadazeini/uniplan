@@ -1,7 +1,7 @@
 import "../styles.css";
 import logo6 from "../logo6.png";
-import React, { useState, Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Switch, Link } from "react-router-dom";
 
 export default function LoginPage() {
 
@@ -59,7 +59,7 @@ export default function LoginPage() {
             if(document.getElementById("email").value === "" || document.getElementById("password").value === ""){
               alert("Error: All fields must be filled out!")
             }
-            else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!=".edu"){
+            else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!==".edu"){
               alert("Error: You must use a school email.")
             }
             else{

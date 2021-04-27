@@ -1,7 +1,7 @@
 import "../styles.css";
 import logo6 from "../logo6.png";
-import React, { useState} from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Switch, Link } from "react-router-dom";
 
 
 export default function SignUpPage() {
@@ -82,13 +82,13 @@ else{
       <br></br> <br></br>
       <button type ="submit"
         onClick = {() => {
-          if(document.getElementById("name").value == "" || document.getElementById("email").value == "" || document.getElementById("password1").value == ""){
+          if(document.getElementById("name").value === "" || document.getElementById("email").value === "" || document.getElementById("password1").value === ""){
             alert("Error: All fields must be filled out!")
           }
-          else if(document.getElementById("password1").value != document.getElementById("password2").value){
+          else if(document.getElementById("password1").value !== document.getElementById("password2").value){
             alert("Error: Passwords must match!")
           }
-          else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!=".edu"){
+          else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!==".edu"){
             alert("Error: You must use a school email.")
           }
           else{
