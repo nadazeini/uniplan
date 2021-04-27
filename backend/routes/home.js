@@ -201,9 +201,7 @@ router.delete("/semesters/:id", (req, res) => {
 router.put("/course/:id", (req, res) => {
   const { studentAuth, id, name } = req.body; //studentAuth should be unique to student, will modify after authentication
   if (!studentAuth) {
-    return res
-      .status(404)
-      .json({ error: "need student unique id, semester year and term" });
+    return res.status(404).json({ error: "error logging in" });
   }
   Student.findOne({ name: studentAuth }) //for now... should be id later
     .then((student) => {
@@ -246,50 +244,82 @@ router.put("/course/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+// Remove a course from a semester
+router.delete("/course/:semesterid/:courseid", (req, res) => {
+  const { studentAuth } = req.body; //studentAuth should be unique to student, will modify after authentication
+  if (!studentAuth) {
+    return res.status(422).json({ error: "need student id" });
+  }
+  Student.findOneAndUpdate(
+    { name: studentAuth },
+    {
+      $pull: {
+        "courseplan.0.courses": { id: req.params.courseid },
+      },
+    },
+    { new: true }
+  )
+    .exec()
+    .then((response) => {
+      res.json(
+        response["courseplan"].find(({ id }) => id == req.params.semesterid)[
+          "courses"
+        ]
+      );
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json(err);
+    });
+});
+
 router.put("/add-review", (req, res) => {
   // Note: Assumre the student is alwasy logged in and it's valid
-  const {teacherName, review} = req.body;
-  
+  const { teacherName, review } = req.body;
+
   // using a temporary variable to hold placement of student's name.
   // We need to fix this after implementing login, and use session id linked with student id to locate student
   const studentName = "student1";
 
   // check if the teacher exist
-  Teacher.findOne({ name: teacherName })
-  .then((existingTeacher) => {
+  Teacher.findOne({ name: teacherName }).then((existingTeacher) => {
     if (!existingTeacher) {
       return res
-      .status(422).json({ error: "this teach doesn't exist in our system" });
+        .status(422)
+        .json({ error: "this teach doesn't exist in our system" });
     }
-  })
+  });
 
   // check if student already left review for this teacher
-  Student.findOne({$and: [{name : studentName}, {reviewsGiven: {$elemMatch: {teacher: teacherName}}}]})
-  .then((existingReview) => {
-    if(existingReview) {
-      return res
-        .status(422)
-        .json({ error: "You already left review for this teacher" });
-    } else {
-      // get here, review doesn't exist, we add it to the db
-      Student.updateOne(
-        {name: studentName}, {$push: {reviewsGiven: {teacher: teacherName, review: review}}}
-      ).catch((err) => {
-        console.log('Error: ' + err);
-      })
+  Student.findOne({
+    $and: [
+      { name: studentName },
+      { reviewsGiven: { $elemMatch: { teacher: teacherName } } },
+    ],
+  })
+    .then((existingReview) => {
+      if (existingReview) {
+        return res
+          .status(422)
+          .json({ error: "You already left review for this teacher" });
+      } else {
+        // get here, review doesn't exist, we add it to the db
+        Student.updateOne(
+          { name: studentName },
+          { $push: { reviewsGiven: { teacher: teacherName, review: review } } }
+        ).catch((err) => {
+          console.log("Error: " + err);
+        });
 
-      Teacher.updateOne(
-        {name: teacherName}, {$push: {reviews: review}}
-      ).catch((err) => {
-        console.log('Error: ' + err);
-      })
-    }
-  }) 
-  .catch((err) => console.log(err));
+        Teacher.updateOne(
+          { name: teacherName },
+          { $push: { reviews: review } }
+        ).catch((err) => {
+          console.log("Error: " + err);
+        });
+      }
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
-
-
-  
-
