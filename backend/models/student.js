@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const courseSchema = require("./course");
 const studentSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -12,8 +12,12 @@ const studentSchema = new mongoose.Schema({
   },
 
   courseplan: [
-    { term: String, year: Number },
-    [{ course: String, teacher: String }],
+    {
+      id: Number,
+      term: String,
+      year: Number,
+      courses: [courseSchema.Course],
+    },
   ],
   reviewsGiven: [{ teacher: String, review: String }],
   ratingsGiven: [{ teacher: String, review: String }],

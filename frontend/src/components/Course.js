@@ -10,7 +10,7 @@ export const Course = ({ course, removeCourse, updateCourse }) => {
   });
 
   const submitUpdate = (value) => {
-    updateCourse(edit.id, value);
+    updateCourse(course.id, value);
     setEdit({
       id: null,
       value: "",
