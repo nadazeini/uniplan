@@ -16,16 +16,31 @@ const Courses = ({ semester }) => {
     if (!newValue.name || /^\s*$/.test(newValue.name)) {
       return;
     }
-    setCourses((prev) =>
-      prev.map((item) => (item.id === courseId ? newValue : item))
-    );
-    //find course to update in courses of the semester
-    semester.courses.forEach((course) => {
-      if (course.id === courseId) {
-        course.name = newValue.name;
-      }
-    });
-    // console.log(semester.courses);
+    const requestOptions = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        studentAuth: "Fake", //to change to id of logged in user
+        name: newValue.name,
+      }),
+    };
+    fetch(
+      "http://localhost:5000/course/" + semester.id + "/" + courseId,
+      requestOptions
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        //find course to update in courses of the semester
+        semester.courses.forEach((course) => {
+          if (course.id === courseId) {
+            course.name = res.name;
+          }
+        });
+        setCourses((prev) =>
+          prev.map((item) => (item.id === courseId ? res : item))
+        );
+      });
   };
 
   const removeCourse = (id) => {
