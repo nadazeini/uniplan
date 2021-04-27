@@ -233,9 +233,9 @@ router.put("/course/:id", (req, res) => {
         .save()
         .then((updatedStudent) => {
           res.json(
-            updatedStudent["courseplan"].find(({ id }) => id == req.params.id)[
-              "courses"
-            ]
+            updatedStudent["courseplan"]
+              .find(({ id }) => id == req.params.id)
+              ["courses"].find(({ id }) => id == req.body.id)
           );
         })
         .catch((err) => {
