@@ -35,7 +35,8 @@ There are 3 files that test a couple features, the name of each test suggests wh
 
 - ``courseplan.js``:
 
-<img width="970" alt="Screen Shot 2021-04-28 at 1 22 38 AM" src="https://user-images.githubusercontent.com/47260563/116371396-39c98680-a7c0-11eb-8551-23fa89d3c680.png">
+<img width="986" alt="Screen Shot 2021-04-28 at 1 30 23 AM" src="https://user-images.githubusercontent.com/47260563/116372513-50bca880-a7c1-11eb-8504-f6fa44d72642.png">
+
 
 - ``searchpage.js``:
 
