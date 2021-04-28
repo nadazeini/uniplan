@@ -1,0 +1,2820 @@
+{
+	"info": {
+		"_postman_id": "f95c7fcd-3e56-428a-aa90-0018639f3018",
+		"name": "Testing-Uniplan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "http://localhost:5000/course/2789/3214",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"name\": \"CS166\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/2789/3214",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"2789",
+								"3214"
+							]
+						},
+						"description": "Update a course"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/2789/3214",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"name\": \"CS166\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/2789/3214",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"2789",
+										"3214"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "131"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"83-+8DNRHN4ZU1vf8ZjeHos4Mpmit4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:40:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teachers\": [],\n    \"_id\": \"6087b11422a9b86ea024a371\",\n    \"id\": 3214,\n    \"name\": \"CS166\",\n    \"semestersOffered\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/course/9124/6438",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/9124/6438",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"9124",
+								"6438"
+							]
+						},
+						"description": "Delete a course from a semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/9124/6438",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/9124/6438",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"9124",
+										"6438"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-y4fqeA/VJ/s1Uj5nLatQZ0JMHSU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:41:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"teachers\": [],\n        \"_id\": \"6088e192527e807f8f3b699a\",\n        \"id\": 179,\n        \"name\": \"CS160\",\n        \"semestersOffered\": [],\n        \"reviewsGiven\": [],\n        \"ratingsGiven\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/course/3749/1565",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/3749/1565",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"3749",
+								"1565"
+							]
+						},
+						"description": "Delete a course"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/3749/1565",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/3749/1565",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"3749",
+										"1565"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-cf1AHFDA5h2F5179EHXy90LTv5Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:41:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"teachers\": [],\n        \"_id\": \"6088e186527e807f8f3b6998\",\n        \"id\": 1504,\n        \"name\": \"MATH177\",\n        \"semestersOffered\": [],\n        \"reviewsGiven\": [],\n        \"ratingsGiven\": []\n    },\n    {\n        \"teachers\": [],\n        \"_id\": \"6088e3a5527e807f8f3b69a0\",\n        \"id\": 3456718,\n        \"name\": \"some course\",\n        \"semestersOffered\": [],\n        \"reviewsGiven\": [],\n        \"ratingsGiven\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/course/3749/1564",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/3749/1564",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"3749",
+								"1564"
+							]
+						},
+						"description": "Delete a course that doesn't exist"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/3749/1564",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/3749/1564",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"3749",
+										"1564"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "276"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"114-cf1AHFDA5h2F5179EHXy90LTv5Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:41:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"teachers\": [],\n        \"_id\": \"6088e186527e807f8f3b6998\",\n        \"id\": 1504,\n        \"name\": \"MATH177\",\n        \"semestersOffered\": [],\n        \"reviewsGiven\": [],\n        \"ratingsGiven\": []\n    },\n    {\n        \"teachers\": [],\n        \"_id\": \"6088e3a5527e807f8f3b69a0\",\n        \"id\": 3456718,\n        \"name\": \"some course\",\n        \"semestersOffered\": [],\n        \"reviewsGiven\": [],\n        \"ratingsGiven\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/course/3749",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"id\": 3456718,\n    \"name\": \"some course\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/3749",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"3749"
+							]
+						},
+						"description": "Add a course to a semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/3749",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"id\": 34567118,\n    \"name\": \"some other course\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/3749",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"3749"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-53tP+eR4Yc25z4kLK2T+UzYVIag\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:43:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teachers\": [],\n    \"_id\": \"6088f5e4e6179e861d304619\",\n    \"id\": 34567118,\n    \"name\": \"some other course\",\n    \"semestersOffered\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/course/3749",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"id\": 3456718,\n    \"name\": \"some course\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/course/3749",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"course",
+								"3749"
+							]
+						},
+						"description": "Add course that already exists in semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/course/3749",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"id\": 3456718,\n    \"name\": \"some course\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/course/3749",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"course",
+										"3749"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-vuLS+OlHPrCrvn+mNvfl+gi9k7A\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:43:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"course already added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/add-class",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3456789456789\",\n    \"name\": \"CS100W\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/add-class",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-class"
+							]
+						},
+						"description": "Add a course to all courses (not courseplan)"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-class",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"34567894567189\",\n    \"name\": \"CS160\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/add-class",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-class"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-uvZe9o3Oawq81O8K3/a4FWTzKrc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:43:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"course added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/add-class",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"3456789456789\",\n    \"name\": \"CS100W\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/add-class",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-class"
+							]
+						},
+						"description": "Add course that already exists"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-class",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"3456789456789\",\n    \"name\": \"CS100W\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/add-class",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-class"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"26-HviI5iX9ekgzGcOpEIw2zR5EeKA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:44:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"this course already exists\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Semester",
+			"item": [
+				{
+					"name": "http://localhost:5000/semesters/45678978",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2017,\n    \"term\": \"Summer\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/semesters/45678978",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"45678978"
+							]
+						},
+						"description": "Add a semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/45678978",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2015,\n    \"term\": \"Summer\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/semesters/456789711",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"456789711"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1349"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"545-pC5RaUynHICWrR8HeVungw6Mlx8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:48:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"608799b75efb6d60a124e7b9\",\n        \"id\": 2789,\n        \"term\": \"Winter\",\n        \"year\": 2018,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6087b11422a9b86ea024a371\",\n                \"id\": 3214,\n                \"name\": \"CS166\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e179527e807f8f3b6997\",\n                \"id\": 5777,\n                \"name\": \"CS146\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"60879a7ad2706f6100bc7255\",\n        \"id\": 3749,\n        \"term\": \"Summer\",\n        \"year\": 2023,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e186527e807f8f3b6998\",\n                \"id\": 1504,\n                \"name\": \"MATH177\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e3a5527e807f8f3b69a0\",\n                \"id\": 3456718,\n                \"name\": \"some course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088f5e4e6179e861d304619\",\n                \"id\": 34567118,\n                \"name\": \"some other course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6087a3152f15526812a7b80f\",\n        \"id\": 9124,\n        \"term\": \"Winter\",\n        \"year\": 2020,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e192527e807f8f3b699a\",\n                \"id\": 179,\n                \"name\": \"CS160\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6088e360527e807f8f3b699f\",\n        \"id\": 45678978,\n        \"term\": \"Summer\",\n        \"year\": 2017,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088e47e527e807f8f3b69a2\",\n        \"id\": 234567893211,\n        \"term\": \"Summer\",\n        \"year\": 2012,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088f723e6179e861d30461b\",\n        \"id\": 456789711,\n        \"term\": \"Summer\",\n        \"year\": 2015,\n        \"courses\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/45678978",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2017,\n    \"term\": \"Summer\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/semesters/45678978",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"45678978"
+							]
+						},
+						"description": "Add a semester that exists"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/45678978",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2017,\n    \"term\": \"Summer\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/semesters/45678978",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"45678978"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-DZZS9CLBl1fmuJXs+KdFEZx+460\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:48:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"semester already exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/Nada",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/semesters/Nada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"Nada"
+							]
+						},
+						"description": "Get all semester of a student"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/Nada",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/semesters/Nada",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"Nada"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1004"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3ec-9MOp6w//Y3US3hoBGqP2mylQOYs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:48:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6086506fddfc400a2828ba20\",\n        \"semesterId\": 234567891,\n        \"term\": \"Fall\",\n        \"year\": 2018,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865190e50b480c948cf3c0\",\n        \"semesterId\": 234567892,\n        \"term\": \"Fall\",\n        \"year\": 2019,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6086529b9680ef0d3afc138b\",\n        \"semesterId\": 234567893,\n        \"term\": \"Winter\",\n        \"year\": 2019,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"608652ad12865e0d4c10657e\",\n        \"semesterId\": 234567894,\n        \"term\": \"Summer\",\n        \"year\": 2019,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865d522a5ec213812a040d\",\n        \"term\": \"Summer\",\n        \"year\": 2016,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865d7af22596139d279140\",\n        \"id\": 234567899,\n        \"term\": \"Fall\",\n        \"year\": 2016,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865e0c28fe0b13b44c1c24\",\n        \"id\": 8544,\n        \"term\": \"Spring\",\n        \"year\": 2022,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865e6a28fe0b13b44c1c25\",\n        \"id\": 7266,\n        \"term\": \"Winter\",\n        \"year\": 2026,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60865ef228fe0b13b44c1c26\",\n        \"id\": 2345678923,\n        \"term\": \"Summer\",\n        \"year\": 2011,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"60875f762dbe50465eb00858\",\n        \"id\": 234567892,\n        \"term\": \"Winter\",\n        \"year\": 2019,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088dbb2527e807f8f3b6996\",\n        \"id\": 234567891,\n        \"term\": \"Spring\",\n        \"year\": 2016,\n        \"courses\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/Adam",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/semesters/Adam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"Adam"
+							]
+						},
+						"description": "Get semesters of a student that doesn't exist"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/Adam",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/semesters/Adam",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"Adam"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-zQX7x7iD7he7FeQ3vmr/GfYI6dc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:48:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"student not logged in or doesn't exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/23456789323",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2011,\n    \"term\": \"Summer\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/semesters/23456789323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"23456789323"
+							]
+						},
+						"description": "Add semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/23456789323",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2011,\n    \"term\": \"Summer\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/semesters/23456789323",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"23456789323"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1442"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5a2-UAuUr+2NcXy6xP+5JH1I/vJQYyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:48:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"608799b75efb6d60a124e7b9\",\n        \"id\": 2789,\n        \"term\": \"Winter\",\n        \"year\": 2018,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6087b11422a9b86ea024a371\",\n                \"id\": 3214,\n                \"name\": \"CS166\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e179527e807f8f3b6997\",\n                \"id\": 5777,\n                \"name\": \"CS146\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"60879a7ad2706f6100bc7255\",\n        \"id\": 3749,\n        \"term\": \"Summer\",\n        \"year\": 2023,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e186527e807f8f3b6998\",\n                \"id\": 1504,\n                \"name\": \"MATH177\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e3a5527e807f8f3b69a0\",\n                \"id\": 3456718,\n                \"name\": \"some course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088f5e4e6179e861d304619\",\n                \"id\": 34567118,\n                \"name\": \"some other course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6087a3152f15526812a7b80f\",\n        \"id\": 9124,\n        \"term\": \"Winter\",\n        \"year\": 2020,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e192527e807f8f3b699a\",\n                \"id\": 179,\n                \"name\": \"CS160\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6088e360527e807f8f3b699f\",\n        \"id\": 45678978,\n        \"term\": \"Summer\",\n        \"year\": 2017,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088e47e527e807f8f3b69a2\",\n        \"id\": 234567893211,\n        \"term\": \"Summer\",\n        \"year\": 2012,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088f723e6179e861d30461b\",\n        \"id\": 456789711,\n        \"term\": \"Summer\",\n        \"year\": 2015,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088f742e6179e861d30461c\",\n        \"id\": 23456789323,\n        \"term\": \"Summer\",\n        \"year\": 2011,\n        \"courses\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/23456789323",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/semesters/23456789323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"23456789323"
+							]
+						},
+						"description": "Delete semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/23456789323",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/semesters/23456789323",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"23456789323"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1349"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"545-pC5RaUynHICWrR8HeVungw6Mlx8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:49:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"608799b75efb6d60a124e7b9\",\n        \"id\": 2789,\n        \"term\": \"Winter\",\n        \"year\": 2018,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6087b11422a9b86ea024a371\",\n                \"id\": 3214,\n                \"name\": \"CS166\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e179527e807f8f3b6997\",\n                \"id\": 5777,\n                \"name\": \"CS146\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"60879a7ad2706f6100bc7255\",\n        \"id\": 3749,\n        \"term\": \"Summer\",\n        \"year\": 2023,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e186527e807f8f3b6998\",\n                \"id\": 1504,\n                \"name\": \"MATH177\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e3a5527e807f8f3b69a0\",\n                \"id\": 3456718,\n                \"name\": \"some course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            },\n            {\n                \"teachers\": [],\n                \"_id\": \"6088f5e4e6179e861d304619\",\n                \"id\": 34567118,\n                \"name\": \"some other course\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6087a3152f15526812a7b80f\",\n        \"id\": 9124,\n        \"term\": \"Winter\",\n        \"year\": 2020,\n        \"courses\": [\n            {\n                \"teachers\": [],\n                \"_id\": \"6088e192527e807f8f3b699a\",\n                \"id\": 179,\n                \"name\": \"CS160\",\n                \"semestersOffered\": [],\n                \"reviewsGiven\": [],\n                \"ratingsGiven\": []\n            }\n        ]\n    },\n    {\n        \"_id\": \"6088e360527e807f8f3b699f\",\n        \"id\": 45678978,\n        \"term\": \"Summer\",\n        \"year\": 2017,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088e47e527e807f8f3b69a2\",\n        \"id\": 234567893211,\n        \"term\": \"Summer\",\n        \"year\": 2012,\n        \"courses\": []\n    },\n    {\n        \"_id\": \"6088f723e6179e861d30461b\",\n        \"id\": 456789711,\n        \"term\": \"Summer\",\n        \"year\": 2015,\n        \"courses\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/semesters/234567893211",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2012,\n    \"term\": \"Summer\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/semesters/234567893211",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"semesters",
+								"234567893211"
+							]
+						},
+						"description": "Add semester"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/semesters/234567893211",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentAuth\": \"Fake\",\n    \"year\": 2012,\n    \"term\": \"Summer\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/semesters/234567893211",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"semesters",
+										"234567893211"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"23-DZZS9CLBl1fmuJXs+KdFEZx+460\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:49:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"semester already exists\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "http://localhost:5000/search-teachers",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"teacher1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/search-teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"search-teachers"
+							]
+						},
+						"description": "Searched teacher found"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/search-teachers",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"teacher1\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/search-teachers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"search-teachers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f5-IUWM3zwRWFDk2/BY2vHcY75pV3g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:49:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teacher\": [\n        {\n            \"department\": [\n                \"Computer Science\"\n            ],\n            \"ratings\": [\n                4\n            ],\n            \"classestaught\": [\n                \"CS152\",\n                \"CS149\",\n                \"CS151\"\n            ],\n            \"reviews\": [\n                \"cool stuff 1\"\n            ],\n            \"_id\": \"603feb1c89d901a16cc6e6fb\",\n            \"id\": 121212,\n            \"name\": \"teacher1\",\n            \"bio\": \"Hello my name is teacher1 and....\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/search-teachers",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"some teacher\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/search-teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"search-teachers"
+							]
+						},
+						"description": "Searched teacher not found"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/search-teachers",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"some teacher\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/search-teachers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"search-teachers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "14"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e-Muc4UuDWbLPBFG/icZbx6ZMznag\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:50:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"teacher\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "http://localhost:5000/sign-up",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"sign-up"
+							]
+						},
+						"description": "Sign up a new user"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/sign-up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15-MPruCvE9y9ndqgDN+Ft/JlEWq8w\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:50:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"need name\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/sign-up",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"testing1\",\n    \"email\": \"test1@sjsu.edu\",\n    \"password\": \"testpw\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"sign-up"
+							]
+						},
+						"description": "Sign up user exists"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/sign-up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"testing2\",\n    \"email\": \"test2@sjsu.edu\",\n    \"password\": \"te2stpw\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18-psb+z1cKMl75zqJFGa0gyrgmm7k\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:50:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/sign-up",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"testing2\",\n    \"email\": \"test3@sjsu.edu\",\n    \"password\": \"testpwdwdfw\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"sign-up"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/sign-up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"testingg2\",\n    \"email\": \"test3g@sjsu.edu\",\n    \"password\": \"tesgtpwdwdfw\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/sign-up",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"18-psb+z1cKMl75zqJFGa0gyrgmm7k\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:50:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/log-in",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test1@sjsu.edu\",\n    \"password\": \"test1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/log-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"log-in"
+							]
+						},
+						"description": "Login success"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/log-in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test1@sjsu.edu\",\n    \"password\": \"test1\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/log-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"log-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "144"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"90-dPwpwyszshJlhtAvDgyPfsQ5F74\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:51:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"_id\": \"6088eec269582d7d30698b77\",\n        \"name\": \"test1\",\n        \"email\": \"test1@sjsu.edu\",\n        \"password\": \"test1\",\n        \"date\": \"2021-04-28T05:12:34.986Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/log-in",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test3@sjsu.edu\",\n    \"password\": \"testpwdwdfw\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/log-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"log-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/log-in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test3@sjsu.edu\",\n    \"password\": \"testpwdwdfw\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/log-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"log-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"99-ftLp0e/KFvNQjRseZSJvY/CoOj0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:51:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"_id\": \"6088f105e6179e861d304616\",\n        \"name\": \"testing2\",\n        \"email\": \"test3@sjsu.edu\",\n        \"password\": \"testpwdwdfw\",\n        \"date\": \"2021-04-28T05:22:13.540Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/log-in",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test3@sjsu.eduu\",\n    \"password\": \"testpwdwdfw\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/log-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"log-in"
+							]
+						},
+						"description": "Fail login"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/log-in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test3@sjsu.eduu\",\n    \"password\": \"testpwdwdfw\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/log-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"log-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "13"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d-O3i+ap2cff5bxhPRN8PyzcjObvA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:51:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews-Ratings",
+			"item": [
+				{
+					"name": "http://localhost:5000/add-review",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/add-review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-review"
+							]
+						},
+						"description": "Add review for teacher that doesn't exist"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-review",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/add-review",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-review"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-uiFLG+copxSWPeKHOGqDSpHTgoc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:51:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"this teach doesn't exist in our system\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "http://localhost:5000/add-student",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Taylor Smith\",\n    \"department\": \"Biology\",\n    \"courseplan\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/add-student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-student"
+							]
+						},
+						"description": "Add a student"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Will Smith\",\n    \"department\": \"Economics\",\n    \"courseplan\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/add-student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-student"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-fYHjOnEZCAjor4ze4nkn7MlouxI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:51:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"new student added\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/add-student",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Taylor Smith\",\n    \"department\": \"Biology\",\n    \"courseplan\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/add-student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-student"
+							]
+						},
+						"description": "Add student that exists"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Taylor Smith\",\n    \"department\": \"Biology\",\n    \"courseplan\": [],\n    \"reviewsGiven\": [],\n    \"ratingsGiven\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/add-student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-student"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-ZOwSlKbVgEbJnF+MBm+/weZfxkU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:52:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"student exists\"\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:5000/add-student",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Taylor Smith\",\n    \"department\": \"Computer Science\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/add-student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"add-student"
+							]
+						},
+						"description": "Add student same name different department"
+					},
+					"response": [
+						{
+							"name": "http://localhost:5000/add-student",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Taylor Smith\",\n    \"department\": \"Computer Science\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:5000/add-student",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"add-student"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a-ZOwSlKbVgEbJnF+MBm+/weZfxkU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Apr 2021 05:52:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"student exists\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
