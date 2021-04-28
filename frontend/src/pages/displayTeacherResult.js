@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState } from "react";
 import "../styles.css";
 import logo6 from "../logo6.png";
 
@@ -33,7 +33,6 @@ export default function DisplayTeacherResult() {
     if (results !== undefined && Object.keys(results).length !== 0) {
       return (
         <div className="App">
-
           <div className="search">
             <img alt="" src={logo6} width="30%" />
             <h3>Input a professor's name to search!</h3>
@@ -52,7 +51,7 @@ export default function DisplayTeacherResult() {
             </button>
           </div>
 
-          <div className="results">
+          <div className="results" id="results">
             <div className="info">
               <div className="teacherName">{searched ? results.name : ""}</div>
               <div>{searched ? "Department: " + results.department : ""}</div>
@@ -89,7 +88,6 @@ export default function DisplayTeacherResult() {
     } else {
       return (
         <div className="App">
-
           <div className="search">
             <img alt="" src={logo6} width="30%" />
             <h3>Input a professor's name to search!</h3>
@@ -114,8 +112,8 @@ export default function DisplayTeacherResult() {
     }
   } else {
     return (
-      <div className="App">
-        <div className="search">
+      <div className="App" id="searchpage">
+        <div className="search" id="search">
           <img alt="" src={logo6} width="30%" />
           <h3>Input a professor's name to search!</h3>
 
