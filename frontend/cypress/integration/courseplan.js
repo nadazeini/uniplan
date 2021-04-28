@@ -35,7 +35,7 @@ describe("test the transcripts page", () => {
     cy.get("#standard-basic").type("cs146{enter}");
   });
 
-  it("can add delete a  under a semester", () => {
+  it("can delete a course from under a semester", () => {
     cy.visit("/transcript");
     cy.get(
       ':nth-child(3) > .icons > [style="cursor: pointer; margin-right: -5px;"] > path'
