@@ -6,23 +6,27 @@ import Home from "./pages/home";
 import EditReview from "./pages/editReview";
 import DisplayTeacherResult from "./pages/displayTeacherResult";
 import TranscriptForm from "./pages/transcriptForm";
-import LoginPage from "./pages/loginpage"
-import SignUpPage from "./pages/signuppage"
-import { CSSTransition } from 'react-transition-group';
+import LoginPage from "./pages/loginpage";
+import SignUpPage from "./pages/signuppage";
+import { CSSTransition } from "react-transition-group";
 
 const routes = [
-  { path: '/', name: 'Home', Component: Home },
-  { path: '/review/edit', name: 'Edit Review', Component: EditReview },
-  { path: '/search-teachers', name: 'Display Teacher Result', Component:  DisplayTeacherResult},
-  { path: '/transcript', name: 'Transcript', Component: TranscriptForm },
-  { path: '/login', name: 'Log In', Component: LoginPage },
-  { path: '/signup', name: 'Sign Up', Component: SignUpPage },
+  { path: "/", name: "Home", Component: Home },
+  { path: "/review/edit", name: "Edit Review", Component: EditReview },
+  {
+    path: "/search-teachers",
+    name: "Display Teacher Result",
+    Component: DisplayTeacherResult,
+  },
+  { path: "/transcript", name: "Transcript", Component: TranscriptForm },
+  { path: "/login", name: "Log In", Component: LoginPage },
+  { path: "/signup", name: "Sign Up", Component: SignUpPage },
 ];
 
 export default function App() {
   return (
     <Router>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <Link to="/">Uniplan</Link>
@@ -53,8 +57,8 @@ export default function App() {
           </div>
         </div>
       </nav>
-      <div>
-      {routes.map(({ path, Component }) => (
+      <div id="container">
+        {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
             {({ match }) => (
               <CSSTransition
@@ -73,5 +77,4 @@ export default function App() {
       </div>
     </Router>
   );
-
 }
