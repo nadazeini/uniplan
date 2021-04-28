@@ -48,7 +48,7 @@ function SemesterForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="semester-form">
+    <form onSubmit={handleSubmit} className="semester-form" id="semester-form">
       {semesters.length ? (
         props.edit ? (
           <>
@@ -75,6 +75,7 @@ function SemesterForm(props) {
             <FormControl
               className="semester-input"
               style={{ marginLeft: "10px", width: "300px" }}
+              id="term-input"
             >
               <InputLabel>Select term</InputLabel>
               <Select onChange={handleTermChange} label="Age" value={termInput}>
@@ -85,7 +86,10 @@ function SemesterForm(props) {
               </Select>
             </FormControl>
 
-            <FormControl style={{ marginLeft: "10px", width: "300px" }}>
+            <FormControl
+              style={{ marginLeft: "10px", width: "300px" }}
+              id="year-input"
+            >
               <InputLabel>Select year</InputLabel>
               <Select
                 onChange={handleYearChange}
@@ -106,6 +110,7 @@ function SemesterForm(props) {
               onClick={handleSubmit}
               style={{ marginTop: "15px", color: "#3574c3" }}
               className="semester-button"
+              id="add-semester-button"
             >
               <AddCircleIcon />
             </Button>
