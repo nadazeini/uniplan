@@ -31,7 +31,8 @@ There are 3 files that test a couple features, the name of each test suggests wh
 - ``homepage.js``:
 
 <img width="1194" alt="Screen Shot 2021-04-28 at 5 42 44 PM" src="https://user-images.githubusercontent.com/47260563/116489173-257d9c00-a849-11eb-8eb9-f2c61368ba18.png">
-(In the last case, if not logged in, the page should go back to login, but it doesn't, this should be fixed)
+(In the last test in homepage.js, we are checking for if not logged in, the page should go back to login, but it doesn't, which is why the test fails, this should be fixed)
+
 
 - ``courseplan.js``:
 
