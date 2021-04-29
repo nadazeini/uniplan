@@ -30,8 +30,9 @@
 There are 3 files that test a couple features, the name of each test suggests what it's testing.
 - ``homepage.js``:
 
-(errors to be resolved, explained in test report)
-<img width="383" alt="Screen Shot 2021-04-28 at 1 23 29 AM" src="https://user-images.githubusercontent.com/47260563/116371499-582f8200-a7c0-11eb-80d0-ec789570db41.png">
+<img width="1194" alt="Screen Shot 2021-04-28 at 5 42 44 PM" src="https://user-images.githubusercontent.com/47260563/116489173-257d9c00-a849-11eb-8eb9-f2c61368ba18.png">
+(In the last test in homepage.js, we are checking for if not logged in, the page should go back to login, but it doesn't, which is why the test fails, this should be fixed)
+
 
 - ``courseplan.js``:
 
