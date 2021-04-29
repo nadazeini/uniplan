@@ -35,6 +35,8 @@ describe("renders the home page", () => {
     cy.get("#password").clear();
     cy.get("#password").type("nada");
     cy.get("button").click();
+    cy.get("#container").should("exist");
+    cy.get("#navbar").should("exist");
   });
 
   it("non-existing user cannot login", () => {
