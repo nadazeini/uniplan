@@ -46,6 +46,7 @@ describe("renders the home page", () => {
     cy.get("#password").type("taylor");
     cy.get("#email").clear();
     cy.get("#email").type("taylor@sjsu.edu");
-    cy.get("button").click();
+    cy.get("#login-button").click();
+    cy.get("#login-page").should("exist");
   });
 });
