@@ -3,6 +3,7 @@ import logo6 from "../logo6.png";
 import React, { useState } from "react";
 import { BrowserRouter as Switch, Link } from "react-router-dom";
 
+
 export default function LoginPage() {
 
   const[loggedIn,setloggedIn]= useState(false);
@@ -16,72 +17,84 @@ export default function LoginPage() {
     };
 
     fetch("http://localhost:5000/log-in/", requestOptions)
-      .then((res) => res.json())
-      
-      .then((res) => setResults(res.user));
+    .then((res) => res.json())
+    .then((res) => setResults(res.user));
 
-    setloggedIn(true);
+    if (results == null)
+    {
+      console.log("null results");
+      return null;
+    }
+
+    else if (results !== undefined && Object.keys(results).length !== 0) {
+      setloggedIn(true);
+      console.log("credentials matched");
+    }
+    else {
+      setloggedIn(false);
+      console.log("credentials not found");
+    }
+
   };
-
 
   if(loggedIn){
     return(
       document.location.href = "/"
-      );
+    );
   }
   else{
-      return(
-        <div className="App">
-        <div className="">
-          <img alt="" src={logo6} width="10%" />
-          <div className="title">
-            LOGIN
-          </div>
-        </div>
+    return(
+      <div className="App">
+      <div className="">
+      <img alt="" src={logo6} width="10%" />
+      <div className="title">
+      LOGIN
+      </div>
+      </div>
 
-        <div className="wrap">
-          <h3>Log Into Your Account</h3>
+      <div className="wrap">
+      <h3>Log Into Your Account</h3>
 
-          <input type = "email"
-            placeholder="Email"
-            id = "email"
-            required
-          />
-          <br></br> <br></br>
-          <input type = "password"
-            placeholder="Password"
-            id = "password"
-            required
-          />
-          <br></br> <br></br>
-          <button type = "submit"
-          onClick = {() => {
-            if(document.getElementById("email").value === "" || document.getElementById("password").value === ""){
-              alert("Error: All fields must be filled out!")
-            }
-            else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!==".edu"){
-              alert("Error: You must use a school email.")
-            }
-            else{
-              checkCredentials(document.getElementById("email").value,document.getElementById("password").value,);
-            }
-          }}
-          >
-          LOGIN
-          </button>
+      <input type = "email"
+      placeholder="Email"
+      id = "email"
+      required
+      />
+      <br></br> <br></br>
+      <input type = "password"
+      placeholder="Password"
+      id = "password"
+      required
+      />
+      <br></br> <br></br>
+      <button type = "submit"
+      onClick = {() => {
+        if(document.getElementById("email").value === "" || document.getElementById("password").value === ""){
+          alert("Error: All fields must be filled out!")
+        }
+        else if(document.getElementById("email").value.substring(document.getElementById("email").value.length-4)!==".edu"){
+          alert("Error: You must use a school email.")
+        }
+        else{
+          checkCredentials(document.getElementById("email").value,document.getElementById("password").value,);
+        }
+      }}
+      >
+      LOGIN
+      </button>
 
-          <br></br>
-          <div>
-          Need an account?
-          <a class="" href="#">
-              <Link to="/signup"> Sign Up</Link>
-            </a>
-          </div>
+      <br></br>
+      <div>
+      Need an account?
+      <a class="" href="#">
+      <Link to="/signup"> Sign Up</Link>
+      </a>
+      </div>
 
-
-        </div>
 
       </div>
-      );
+
+      </div>
+    );
   }
 }
