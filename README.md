@@ -7,7 +7,7 @@
 1. <a href="https://nodejs.org/en/"  target="_blank">Node.js v14.15.3 or newer </a>
 2. <a href="https://account.mongodb.com/account/login"  target="_blank">MongoDB account</a>
 3. Clone repository 
-4. [Run locally](#run-locally)
+4. [Run locally](#Run-locally)
 
 #### 🗂 Structure
 
