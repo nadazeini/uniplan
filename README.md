@@ -88,7 +88,7 @@ Uniplan is open to contributions, we recommend creating an issue or replying in 
 
 
 #### 🛠 Backend
-  - <a href=" https://docs.google.com/document/d/1UwwsonkqD68Jg1awcimWrtvlqRNyD1CB2H6F86l-eds/edit?usp=sharing"  target="_blank">Backend APIs</a>
+  - Backend APIs <a href=" https://docs.google.com/document/d/1UwwsonkqD68Jg1awcimWrtvlqRNyD1CB2H6F86l-eds/edit?usp=sharing">here</a>
   - Steps to create a new collection: 
     - Create a model in ``models`` folder with the name of the collection and follow the name formatting and overall structure of the models that already exist - make sure to add this line ``mongoose.model("Teacher", teacherSchema);`` the second argument should be the same name ending in "Schema".
     - For everything to work you need to require the model file in ``server.js`` at the top like ``require("./models/teacher");``
@@ -105,7 +105,7 @@ Uniplan is open to contributions, we recommend creating an issue or replying in 
   - `App.js` is the main react component that the application will render at the root
   - ``index.js`` is the root file of the react app that renders the `App` component 
 
-More on <a href="https://reactjs.org"  target="_blank">React.js</a>
+More on <a href="https://reactjs.org">React.js</a>
 
 #### 🚗 Test Automation
 
