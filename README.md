@@ -88,7 +88,7 @@ Uniplan is open to contributions, we recommend creating an issue or replying in 
 
 
 #### 🛠 Backend
-  - Backend APIs <a href=" https://docs.google.com/document/d/1UwwsonkqD68Jg1awcimWrtvlqRNyD1CB2H6F86l-eds/edit?usp=sharing">here</a>
+  - <a href="https://docs.google.com/document/d/1UwwsonkqD68Jg1awcimWrtvlqRNyD1CB2H6F86l-eds/edit?usp=sharing"  target="_blank">Backend APIs</a>
   - Steps to create a new collection: 
     - Create a model in ``models`` folder with the name of the collection and follow the name formatting and overall structure of the models that already exist - make sure to add this line ``mongoose.model("Teacher", teacherSchema);`` the second argument should be the same name ending in "Schema".
     - For everything to work you need to require the model file in ``server.js`` at the top like ``require("./models/teacher");``
