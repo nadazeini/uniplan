@@ -1,5 +1,9 @@
 # Uniplan
 
+### User Guide
+
+//add link here
+
 ### Developer Guide
 
 #### 👾 Requirements
@@ -52,15 +56,13 @@
 
 #### Branching and Contributions
 
-Uniplan is open to contributions, we recommend creating an issue or replying in a comment to let us know what you are working on first that way we don't overwrite each other.
+Uniplan is open to contributions, we recommend creating an issue or replying in a comment to the issue let us know what you are working on first that way we don't overwrite each other.
 
 ##### Pull requests
 1. Fork the repo and create your branch (usually named after the issue).
 2. If the code added should be tested, add some test examples.
 3. Ensure to describe your pull request.
 
-
-+ If the issue exists, comment that you will be working on it
 
 #### Backend
 #### Frontend
