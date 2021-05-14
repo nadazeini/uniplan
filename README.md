@@ -110,6 +110,7 @@ More on <a href="https://reactjs.org">React.js</a>
 #### 🚗 Test Automation
 
 Backend testing: Done with using Postman, tests and results exported into a json file
+<a href="https://docs.google.com/document/d/1kOiGYqF64Q1FonaBKAe9zZcTp9LdUACW9IjhNbEecF0/edit?usp=sharing">Our testplan</a>
 
 #### Docker
 
