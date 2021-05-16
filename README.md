@@ -2,7 +2,7 @@
 
 ### User Guide
 
-//add link here
+<a href="https://docs.google.com/document/d/1aJ_RK6QkcDIHBQYMIbAp1Q9q2KC5b4_d8xWGZF0OiU8/edit?usp=sharing"  target="_blank">instructions</a>
 
 ### Developer Guide
 
@@ -76,6 +76,8 @@
    - ``npm install`` 
    - ``npm start`` 
    - The react app will start running on port 3000
+
+More details for setting up your developer environment can be found <a href="https://docs.google.com/document/d/1nB0lRI0E6x9cO13FxYdyd5gTg8Ya10P7GRPWN3HU_2k/edit?usp=sharing"  target="_blank">here</a>
 
 #### 👩‍💻 Branching and Contributions
 
