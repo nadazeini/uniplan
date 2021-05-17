@@ -116,4 +116,16 @@ Backend testing: Done with using Postman, tests and results exported into a json
 <a href="https://docs.google.com/document/d/1kOiGYqF64Q1FonaBKAe9zZcTp9LdUACW9IjhNbEecF0/edit?usp=sharing">Our testplan</a>
 
 #### Docker
+Instructions to run images on Docker:
+1. Install Docker
+2. Download backend.tar and frontend.tar from the Docker folder in Sprint 6
+3. In terminal CD to where you downloaded the files to
+4. In terminal type: docker load < frontend.tar
+5. In terminal type: docker load < backend.tar 
+6. In terminal type: docker run -p 5000:5000 backend-images
+      - This will run the backend image on port 5000
+7. In terminal type: docker run -p 3000:3000 frontend-image
+      - This will run the frontend image on port 3000
+8. Open http://localhost:3000 to see running images
+
 
