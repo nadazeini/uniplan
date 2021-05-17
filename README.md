@@ -115,7 +115,7 @@ Backend testing: Done with using Postman, tests and results exported into a json
 
 <a href="https://docs.google.com/document/d/1kOiGYqF64Q1FonaBKAe9zZcTp9LdUACW9IjhNbEecF0/edit?usp=sharing">Our testplan</a>
 
-#### Docker
+#### 🐳 Docker
 Instructions to run images on Docker:
 1. Install Docker
 2. Download backend.tar and frontend.tar from the Docker folder in Sprint 6
