@@ -25,7 +25,7 @@
     - pages
   - public
 - [test-automation](#-test-automation)
-- [docker](#docker)
+- [docker](#-docker)
 
 #### 💻 Run locally
 
